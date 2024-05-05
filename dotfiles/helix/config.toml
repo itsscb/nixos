@@ -1,0 +1,47 @@
+theme = "onedark"
+
+[editor]
+line-number="relative"
+bufferline="multiple"
+cursorline=true
+auto-completion=true
+auto-save=true
+auto-format=true
+text-width=80
+gutters=["diff","diagnostics","line-numbers","spacer"]
+
+[editor.cursor-shape]
+insert="bar"
+normal="block"
+select="underline"
+
+[editor.statusline]
+left = ["mode", "spinner", "file-modification-indicator", "read-only-indicator"]
+center = ["file-name"]
+right = ["diagnostics", "register", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+
+[editor.lsp]
+enable=true
+auto-signature-help=true
+display-messages=true
+display-inlay-hints=true
+
+[editor.indent-guides]
+render=true
+character="┊"
+skip-levels=1
+
+[keys.insert]
+j={k="normal_mode"}
+"C-c"="normal_mode"
+
+[keys.normal.g]
+a ="code_action"
+
+[keys.normal.backspace]
+r=":run-shell-command cargo run"
+t=":run-shell-command cargo test"
+b=":run-shell-command cargo build"
+c=":run-shell-command cargo check"
+
