@@ -191,6 +191,7 @@ home-manager = {
     xdg-desktop-portal-hyprland
     rofi-wayland
     pavucontrol
+    blueman
     hyprlock
     # gnomeExtensions.appindicator
 
@@ -201,7 +202,7 @@ home-manager = {
     eza
     bat
     ripgrep
-    git
+    gitFull
   	rustup
   	helix
   	thunderbird
