@@ -208,8 +208,9 @@ wayland.windowManager.hyprland.settings = {
     bind =
       [
         "$mod, T, exec, $terminal"
+        "$mod, L, exec, hyprlock"
         "$mod, Q, exec, $terminal"
-        "$mod, M, exit"
+        "$mod SHIFT, L, exit"
         "$mod, C, killactive"
         "$mod, E, exec, $fileManager"
         "$mod, V, exec, togglefloating"
@@ -219,9 +220,8 @@ wayland.windowManager.hyprland.settings = {
         "$mod, U, fullscreen,"
         "$mod, P, focuscurrentorlast,"
         "$mod, P, movewindow,l"
-        "$mod, H, movefocus, l"
-        "$mod, L, movefocus, r"
-        "$mod, K, movefocus, u"
+        # "$mod, H, movefocus, l"
+        # "$mod, K, movefocus, u"
         "$mod, J, movefocus, d"
         "$mod, S, togglespecialworkspace, magic"
         "$mod SHIFT, S, movetoworkspace, special:magic"
