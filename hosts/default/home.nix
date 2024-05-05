@@ -36,6 +36,11 @@
       enable = true;
       userName = "itsscb";
       userEmail = "dev@itsscb.de";
+      # extraConfig = {
+      #   credential.helper = "${
+      #     pkgs.git.override { withLibsecret = true; }
+      #   }/bin/git-credential-libsecret";
+      # };
     };
 
     chromium = {
@@ -108,6 +113,7 @@ wayland.windowManager.hyprland.settings = {
       "swww-daemon"
       "swww img /etc/nixos/dotfiles/hypr/rust.png"
       "nm-applet --indicator"
+      "blueman-applet"
       "waybar"
       "dunst"
     ];
