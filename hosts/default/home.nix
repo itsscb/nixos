@@ -49,7 +49,8 @@
         "--disable-default-apps"
         "--homepage https://start.duckduckgo.com"
         "--start-maximized"
-        
+        "--enable-features=WebContentsForceDark"
+        "--force-dark-mode"
       ];
       # homepageLocation = "https://start.duckduckgo.com";
       # extraOpts = {
