@@ -1,29 +1,86 @@
 { config, pkgs, inputs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "itsscb";
   home.homeDirectory = "/home/itsscb";
 
-  # wayland.windowManager.hyprland = {
-  #   enable = true;
-  #   settings = {
-  #     # "$mod" = "SUPER";
-  #     "exec-once" = "/etc/nixos/dotfiles/hypr/init.sh";
-  #   };
-  # };
-
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   programs = {
+     helix = {
+       enable = true;
+       defaultEditor = true;
+       settings = {
+         theme = "onedark";
+         editor = {
+           line-number = "relative";
+           bufferline = "multiple";
+           auto-completion = true;
+           auto-save = true;
+           auto-format = true;
+           cursorline = true;
+           gutters = [
+             "diff"
+             "diagnostics"
+             "line-numbers"
+             "spacer"
+           ];
+           text-width = 80;
+           cursor-shape = {
+            insert = "bar";
+            normal = "block";
+             select = "underline";
+           };
+
+           statusline = {
+             left = [
+               "mode"
+               "spinner"
+               "file-modification-indicator"
+               "read-only-indicator"
+             ];
+
+             center = ["file-name"];
+
+             right = [
+               "diagnostics"
+               "register"
+               "selections"
+               "position"
+               "file-encoding"
+               "file-line-ending"
+               "file-type"
+             ];
+
+             separator = "|";
+           };
+
+           lsp = {
+             enable = true;
+             auto-signature-help = true;
+             display-messages = true;
+             display-inlay-hints = true;
+           };
+
+           indent-guides = {
+             render = true;
+             character = "┊";
+             skip-levels = 1;
+           };
+        };
+             keys.insert.j.k="normal_mode";
+             keys.insert."C-c"="normal_mode";
+
+             keys.normal.g.a = "code_action";
+             keys.normal.backspace = {
+               r=":run-shell-command cargo run";
+               t=":run-shell-command cargo test";
+               b=":run-shell-command cargo build";
+               c=":run-shell-command cargo check";
+             };
+         };
+       };
+    
     bash = {
       enable = true;
       shellAliases = {
@@ -36,13 +93,11 @@
       enable = true;
       userName = "itsscb";
       userEmail = "dev@itsscb.de";
-      # extraConfig = {
-      #   credential.helper = "${
-      #     pkgs.git.override { withLibsecret = true; }
-      #   }/bin/git-credential-libsecret";
-      # };
     };
 
+    vim = {
+      enable=true;
+    };
     chromium = {
       enable=true;
       commandLineArgs = [
@@ -52,21 +107,15 @@
         "--enable-features=WebContentsForceDark"
         "--force-dark-mode"
       ];
-      # homepageLocation = "https://start.duckduckgo.com";
-      # extraOpts = {
-      #   syncDisabled = true;
-      #   BrowserSignin = 0;
-      #   PasswordManagerEnabled = false;
-      #   SpellcheckEnabled = false;
-      # };
-      # defaultSearchProviderEnabled= true;
-      # defaultSearchProviderSearchURL = "https://start.duckduckgo.com/?q={searchTerms}";
     };
   };
 
   # dconf = {
   #   enable = true;
   #   settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  #   settings."org/gnome/desktop/screensaver" = {
+  #     picture-uri = "file:///etc/nixos/dotfiles/hypr/rust.png";
+  #     picture-uri-dark = "file:///etc/nixos/dotfiles/hypr/rust.png";
   #   settings."org/gnome/desktop/peripherals/touchpad".tap-to-click = true;
   #   settings."org/gnome/desktop/background".picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/keys-d.jpg";
   #   settings."org/gnome/desktop/background".picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/keys-l.jpg";
@@ -84,30 +133,10 @@
   #   settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".name= "gt2";
   #   settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings= ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
 
-  # };  # The home.packages option allows you to install Nix packages into your
-  # environment.
+  # };
   home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
   ];
 wayland.windowManager.hyprland.enable = true;
-# wayland.windowManager.hyprland.plugins = [
-#   inputs.hyprlock.packages."${pkgs.system}".hyprlock
-# ];
 wayland.windowManager.hyprland.settings = {
     
     exec-once = [
@@ -181,24 +210,17 @@ wayland.windowManager.hyprland.settings = {
     windowrulev2 = "suppressevent maximize, class:.*";
     
     input = {
-      # kb_layout = us;
       follow_mouse = 2;
 
       touchpad = {
         natural_scroll = "yes";  
       };
 
-      # sensitivity = 0;
     };
 
     master = {
       new_is_master = false;
     };
-
-    # env = [
-    #   "XCURSOR_SIZE,24"
-    #   "QT_QPA_PLATFORMTHEME,qt5ct"
-    # ];
 
     bindm = [
       "$mod, mouse:272, movewindow"
@@ -244,40 +266,14 @@ wayland.windowManager.hyprland.settings = {
           )
           10)
       );
-  };  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
+  };
+  
   home.file = {
-    ".config/helix".source = ../../dotfiles/helix;
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    ".config/hypr/hyprlock.conf".source = ../../dotfiles/hypr/hyprlock.conf;
+    ".config/waybar".source = ../../dotfiles/waybar;
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/itsscb/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
-    # EDITOR = "emacs";
   };
 
   # Let Home Manager install and manage itself.
