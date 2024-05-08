@@ -1,6 +1,9 @@
 { config, pkgs, inputs, ... }:
 
 {
+  # imports = [
+  #     inputs.sops-nix.nixosModules.sops
+  # ];
   home.username = "itsscb";
   home.homeDirectory = "/home/itsscb";
 
@@ -93,6 +96,10 @@
       enable = true;
       userName = "itsscb";
       userEmail = "dev@itsscb.de";
+      # credential.helper = "store ${config.sops.secrets."git".path}";
+      # init = {
+      #   defaultBranch = "main";
+      # };
     };
 
     vim = {

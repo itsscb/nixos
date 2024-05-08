@@ -17,8 +17,12 @@
   sops.defaultSopsFormat = "yaml";
   sops.age.keyFile = "/home/itsscb/.config/sops/age/keys.txt";
 
-  sops.secrets."nas" = {};
-
+  sops.secrets."nas" = {
+    owner = config.users.users.itsscb.name;
+  };
+  sops.secrets."git" = {
+    owner = config.users.users.itsscb.name;
+  };
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -152,7 +156,7 @@ home-manager = {
   extraSpecialArgs = { inherit inputs; };
   backupFileExtension = "backup";
   users = {
-    "itsscb" = import ./home.nix;
+    "itsscb" = import ./home.nix; # ( config.sops.secrets."git");
     "root" = {
       home.stateVersion = "23.11";
       home.file.".config/helix".source = ../../dotfiles/helix;
