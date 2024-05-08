@@ -9,8 +9,15 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-      # <home-manager/nixos>
+      inputs.sops-nix.nixosModules.sops
     ];
+
+  sops.validateSopsFiles = false;
+  sops.defaultSopsFile = "/etc/nixos/secrets/secrets.yaml";
+  sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/itsscb/.config/sops/age/keys.txt";
+
+  sops.secrets."nas" = {};
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -71,12 +78,24 @@
 
   };
 
+  users.groups.fsc = {
+    gid = 1010;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.itsscb = {
     isNormalUser = true;
+    uid = 1000;
     description = "itsscb";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "fsc"];
+    packages = with pkgs; [
+   ];
+  };
+  users.users."k.sc"= {
+    isNormalUser = true;
+    uid = 1001;
+    description = "k.sc";
+    extraGroups = [ "networkmanager" "fsc"];
     packages = with pkgs; [
    ];
   };
@@ -84,7 +103,6 @@
   fonts.packages = with pkgs; [
     nerdfonts
   ];
-
 
   
   programs = {
@@ -121,6 +139,8 @@
     variables = {
       EDITOR = "hx";
     };
+
+    
   };
 
   hardware = {
@@ -145,6 +165,8 @@ home-manager = {
   xdg.portal.enable = true;
 
   environment.systemPackages = with pkgs; [
+    age
+    sops
     curl
     waybar
     (waybar.overrideAttrs (oldAttrs: {
@@ -155,7 +177,16 @@ home-manager = {
     libnotify
     
     swww
+    
+    broot
+    jq
+    poppler
+    fzf
     dolphin
+    breeze-icons
+    
+    # cifs-utils
+    
     networkmanagerapplet
     alacritty
     xdg-desktop-portal-gtk
@@ -197,6 +228,32 @@ home-manager = {
     atomix
   ]);
 
+  fileSystems = {
+    "/mnt/home" = {
+      device = "//192.168.128.2/Cloud_Privat";
+      fsType = "cifs";
+      label = "HOME";
+      options = let
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user";
+      in ["${automount_opts},credentials=${config.sops.secrets."nas".path},uid=1000,gid=1010"];
+    };
+    "/mnt/scan" = {
+      device = "//192.168.128.2/scan";
+      fsType = "cifs";
+      options = let
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user";
+
+      in ["${automount_opts},credentials=${config.sops.secrets."nas".path},uid=1000,gid=1010"];
+    };
+    "/mnt/shared" = {
+      device = "//192.168.128.2/shared";
+      fsType = "cifs";
+      options = let
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user";
+
+      in ["${automount_opts},credentials=${config.sops.secrets."nas".path},uid=1000,gid=1010"];
+    };
+  };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

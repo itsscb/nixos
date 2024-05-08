@@ -110,30 +110,31 @@
     };
   };
 
-  # dconf = {
-  #   enable = true;
-  #   settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-  #   settings."org/gnome/desktop/screensaver" = {
-  #     picture-uri = "file:///etc/nixos/dotfiles/hypr/rust.png";
-  #     picture-uri-dark = "file:///etc/nixos/dotfiles/hypr/rust.png";
-  #   settings."org/gnome/desktop/peripherals/touchpad".tap-to-click = true;
-  #   settings."org/gnome/desktop/background".picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/keys-d.jpg";
-  #   settings."org/gnome/desktop/background".picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/keys-l.jpg";
-  #   settings."org/gnome/desktop/background".primary-color = "#aaaaaa";
-  #   settings."org/gnome/desktop/background".secondary-color = "#000000";
-  #   settings."org/gnome/desktop/interface".show-battery-percentage = true;
-  #   settings."org/gnome/settings-daemon/plugins/media-keys".home = ["<Super>e"];
-  #   settings."org/gnome/settings-daemon/plugins/media-keys".control-center= ["<Super>i"];
-  #   settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".binding= "<Super>t";
-  #   settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".command= "gnome-terminal";
-  #   settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".name= "gt1";
+  dconf = {
+    enable = true;
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    settings."org/gnome/desktop/screensaver" = {
+      picture-uri = "file:///etc/nixos/dotfiles/hypr/rust.png";
+      picture-uri-dark = "file:///etc/nixos/dotfiles/hypr/rust.png";
+    };
+    settings."org/gnome/desktop/peripherals/touchpad".tap-to-click = true;
+    settings."org/gnome/desktop/background".picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/keys-d.jpg";
+    settings."org/gnome/desktop/background".picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/keys-l.jpg";
+    settings."org/gnome/desktop/background".primary-color = "#aaaaaa";
+    settings."org/gnome/desktop/background".secondary-color = "#000000";
+    settings."org/gnome/desktop/interface".show-battery-percentage = true;
+    settings."org/gnome/settings-daemon/plugins/media-keys".home = ["<Super>e"];
+    settings."org/gnome/settings-daemon/plugins/media-keys".control-center= ["<Super>i"];
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".binding= "<Super>t";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".command= "gnome-terminal";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".name= "gt1";
 
-  #   settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".binding= "<Control><Alt>t";
-  #   settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".command= "gnome-terminal";
-  #   settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".name= "gt2";
-  #   settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings= ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".binding= "<Control><Alt>t";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".command= "gnome-terminal";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".name= "gt2";
+    settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings= ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
 
-  # };
+  };
   home.packages = [
   ];
 wayland.windowManager.hyprland.enable = true;

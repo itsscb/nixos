@@ -10,6 +10,10 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # hyprlock = {
     #   url = "github:hyprwm/hyprlock";
     #   inputs.hyprland.follows = "hyprland";
