@@ -22,6 +22,7 @@
   };
   sops.secrets."git" = {
     owner = config.users.users.itsscb.name;
+    path = "${config.users.users.itsscb.home}/.config/git/credentials";
   };
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
