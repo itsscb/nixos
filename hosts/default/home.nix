@@ -96,7 +96,9 @@
       enable = true;
       userName = "itsscb";
       userEmail = "dev@itsscb.de";
-      # credential.helper = "store ${config.sops.secrets."git".path}";
+      extraConfig = {
+        credential.helper = "store";
+      };
       # init = {
       #   defaultBranch = "main";
       # };
