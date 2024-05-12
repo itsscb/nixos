@@ -14,10 +14,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprlock = {
-    #   url = "github:hyprwm/hyprlock";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -25,10 +21,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: {
+    inherit self;
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
+        ({pkgs, ...}: {
+          # Let 'nixos-version --json' know about the Git revision
+          # of this flake.
+          system.configurationRevision = self.lastModifiedDate;
+        })
         ./hosts/default/configuration.nix
         inputs.home-manager.nixosModules.default
       ];

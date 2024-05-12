@@ -1,93 +1,94 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  # imports = [
-  #     inputs.sops-nix.nixosModules.sops
-  # ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   home.username = "itsscb";
   home.homeDirectory = "/home/itsscb";
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   programs = {
-     helix = {
-       enable = true;
-       defaultEditor = true;
-       settings = {
-         theme = "onedark";
-         editor = {
-           line-number = "relative";
-           bufferline = "multiple";
-           auto-completion = true;
-           auto-save = true;
-           auto-format = true;
-           cursorline = true;
-           gutters = [
-             "diff"
-             "diagnostics"
-             "line-numbers"
-             "spacer"
-           ];
-           text-width = 80;
-           cursor-shape = {
+    helix = {
+      enable = true;
+      defaultEditor = true;
+      settings = {
+        theme = "onedark";
+        editor = {
+          line-number = "relative";
+          bufferline = "multiple";
+          auto-completion = true;
+          auto-save = true;
+          auto-format = true;
+          cursorline = true;
+          gutters = [
+            "diff"
+            "diagnostics"
+            "line-numbers"
+            "spacer"
+          ];
+          text-width = 80;
+          cursor-shape = {
             insert = "bar";
             normal = "block";
-             select = "underline";
-           };
+            select = "underline";
+          };
 
-           statusline = {
-             left = [
-               "mode"
-               "spinner"
-               "file-modification-indicator"
-               "read-only-indicator"
-             ];
+          statusline = {
+            left = [
+              "mode"
+              "spinner"
+              "file-modification-indicator"
+              "read-only-indicator"
+            ];
 
-             center = ["file-name"];
+            center = ["file-name"];
 
-             right = [
-               "diagnostics"
-               "register"
-               "selections"
-               "position"
-               "file-encoding"
-               "file-line-ending"
-               "file-type"
-             ];
+            right = [
+              "diagnostics"
+              "register"
+              "selections"
+              "position"
+              "file-encoding"
+              "file-line-ending"
+              "file-type"
+            ];
 
-             separator = "|";
-           };
+            separator = "|";
+          };
 
-           lsp = {
-             enable = true;
-             auto-signature-help = true;
-             display-messages = true;
-             display-inlay-hints = true;
-           };
+          lsp = {
+            enable = true;
+            auto-signature-help = true;
+            display-messages = true;
+            display-inlay-hints = true;
+          };
 
-           indent-guides = {
-             render = true;
-             character = "┊";
-             skip-levels = 1;
-           };
+          indent-guides = {
+            render = true;
+            character = "┊";
+            skip-levels = 1;
+          };
         };
-             keys.insert.j.k="normal_mode";
-             keys.insert."C-c"="normal_mode";
+        keys.insert.j.k = "normal_mode";
+        keys.insert."C-c" = "normal_mode";
 
-             keys.normal.g.a = "code_action";
-             keys.normal.backspace = {
-               r=":run-shell-command cargo run";
-               t=":run-shell-command cargo test";
-               b=":run-shell-command cargo build";
-               c=":run-shell-command cargo check";
-             };
-         };
-       };
-    
+        keys.normal.g.a = "code_action";
+        keys.normal.backspace = {
+          r = ":run-shell-command cargo run";
+          t = ":run-shell-command cargo test";
+          b = ":run-shell-command cargo build";
+          c = ":run-shell-command cargo check";
+        };
+      };
+    };
+
     bash = {
       enable = true;
       shellAliases = {
         ls = "eza -la --git";
+        grep = "rg";
         cat = "bat";
       };
     };
@@ -99,16 +100,14 @@
       extraConfig = {
         credential.helper = "store";
       };
-      # init = {
-      #   defaultBranch = "main";
-      # };
     };
 
     vim = {
-      enable=true;
+      enable = true;
     };
+
     chromium = {
-      enable=true;
+      enable = true;
       commandLineArgs = [
         "--disable-default-apps"
         "--homepage https://start.duckduckgo.com"
@@ -133,22 +132,20 @@
     settings."org/gnome/desktop/background".secondary-color = "#000000";
     settings."org/gnome/desktop/interface".show-battery-percentage = true;
     settings."org/gnome/settings-daemon/plugins/media-keys".home = ["<Super>e"];
-    settings."org/gnome/settings-daemon/plugins/media-keys".control-center= ["<Super>i"];
-    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".binding= "<Super>t";
-    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".command= "gnome-terminal";
-    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".name= "gt1";
+    settings."org/gnome/settings-daemon/plugins/media-keys".control-center = ["<Super>i"];
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".binding = "<Super>t";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".command = "gnome-terminal";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".name = "gt1";
 
-    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".binding= "<Control><Alt>t";
-    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".command= "gnome-terminal";
-    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".name= "gt2";
-    settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings= ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
-
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".binding = "<Control><Alt>t";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".command = "gnome-terminal";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".name = "gt2";
+    settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
   };
   home.packages = [
   ];
-wayland.windowManager.hyprland.enable = true;
-wayland.windowManager.hyprland.settings = {
-    
+  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland.settings = {
     exec-once = [
       "swww-daemon"
       "swww img /etc/nixos/dotfiles/hypr/rust.png"
@@ -157,11 +154,11 @@ wayland.windowManager.hyprland.settings = {
       "waybar"
       "dunst"
     ];
-    
+
     "$terminal" = "alacritty";
     "$fileManager" = "dolphin";
     "$menu" = "rofi -show drun";
-    
+
     "$mod" = "SUPER";
 
     monitor = ",preferred,auto,1";
@@ -176,7 +173,6 @@ wayland.windowManager.hyprland.settings = {
 
       allow_tearing = false;
     };
-
 
     decoration = {
       rounding = 10;
@@ -206,7 +202,6 @@ wayland.windowManager.hyprland.settings = {
         "fade, 1, 7, default"
         "workspaces, 1, 6, default"
       ];
-      
     };
 
     gestures = {
@@ -218,14 +213,13 @@ wayland.windowManager.hyprland.settings = {
     };
 
     windowrulev2 = "suppressevent maximize, class:.*";
-    
+
     input = {
       follow_mouse = 2;
 
       touchpad = {
-        natural_scroll = "yes";  
+        natural_scroll = "yes";
       };
-
     };
 
     master = {
@@ -236,7 +230,7 @@ wayland.windowManager.hyprland.settings = {
       "$mod, mouse:272, movewindow"
       "$mod, mouse:273, resizewindow"
     ];
-    
+
     bind =
       [
         "$mod, T, exec, $terminal"
@@ -277,7 +271,7 @@ wayland.windowManager.hyprland.settings = {
           10)
       );
   };
-  
+
   home.file = {
     ".config/hypr/hyprlock.conf".source = ../../dotfiles/hypr/hyprlock.conf;
     ".config/waybar".source = ../../dotfiles/waybar;

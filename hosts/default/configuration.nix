@@ -1,16 +1,20 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-      inputs.sops-nix.nixosModules.sops
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+
+    # Secrets Manager
+    inputs.sops-nix.nixosModules.sops
+  ];
 
   sops.validateSopsFiles = false;
   sops.defaultSopsFile = "/etc/nixos/secrets/secrets.yaml";
@@ -32,7 +36,7 @@
   boot.initrd.luks.devices."luks-ddb552e7-c477-4d71-899b-9224d6782b9f".device = "/dev/disk/by-uuid/ddb552e7-c477-4d71-899b-9224d6782b9f";
   networking.hostName = "scbnb"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -63,7 +67,7 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb= {
+  services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
@@ -81,7 +85,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-
   };
 
   users.groups.fsc = {
@@ -93,37 +96,35 @@
     isNormalUser = true;
     uid = 1000;
     description = "itsscb";
-    extraGroups = [ "networkmanager" "wheel" "fsc"];
+    extraGroups = ["networkmanager" "wheel" "fsc"];
     packages = with pkgs; [
-   ];
+    ];
   };
-  users.users."k.sc"= {
+  users.users."k.sc" = {
     isNormalUser = true;
     uid = 1001;
     description = "k.sc";
-    extraGroups = [ "networkmanager" "fsc"];
+    extraGroups = ["networkmanager" "fsc"];
     packages = with pkgs; [
-   ];
+    ];
   };
 
   fonts.packages = with pkgs; [
     nerdfonts
   ];
 
-  
   programs = {
-    
     steam = {
-    	enable = true;
+      enable = true;
     };
 
     hyprland = {
       enable = true;
       xwayland.enable = true;
     };
-  
+
     chromium = {
-      enable=true;
+      enable = true;
       homepageLocation = "https://start.duckduckgo.com";
       extraOpts = {
         syncDisabled = true;
@@ -131,7 +132,7 @@
         PasswordManagerEnabled = false;
         SpellcheckEnabled = false;
       };
-      defaultSearchProviderEnabled= true;
+      defaultSearchProviderEnabled = true;
       defaultSearchProviderSearchURL = "https://start.duckduckgo.com/?q={searchTerms}";
     };
   };
@@ -141,12 +142,10 @@
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
     };
-    
+
     variables = {
       EDITOR = "hx";
     };
-
-    
   };
 
   hardware = {
@@ -154,85 +153,141 @@
     nvidia.modesetting.enable = true;
   };
 
-home-manager = {
-  extraSpecialArgs = { inherit inputs; };
-  backupFileExtension = "backup";
-  users = {
-    "itsscb" = import ./home.nix; # ( config.sops.secrets."git");
-    "root" = {
-      home.stateVersion = "23.11";
-      home.file.".config/helix".source = ../../dotfiles/helix;
+  home-manager = {
+    extraSpecialArgs = {inherit inputs;};
+    backupFileExtension = "backup";
+    users = {
+      "itsscb" = import ./home.nix; # ( config.sops.secrets."git");
+      "root" = {
+        home.stateVersion = "23.11";
+        home.file.".config/helix".source = ../../dotfiles/helix;
+        programs.bash = {
+          enable = true;
+          shellAliases = {
+            ls = "eza -la --git";
+            grep = "rg";
+            cat = "bat";
+          };
+        };
+      };
     };
   };
-};
 
   nixpkgs.config.allowUnfree = true;
 
   xdg.portal.enable = true;
 
   environment.systemPackages = with pkgs; [
-    age
+    # nix specific
+    ## Secrets Manager
     sops
-    curl
+
+    ## nix formatter
+    alejandra
+
+    # Encryption
+    age
+
+    # Hyprland / Window Manager
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+
+    ## App Starter
+    rofi-wayland
+
+    ## Network Settings
+    networkmanagerapplet
+
+    # Audio Settings
+    pavucontrol
+
+    ## Bluetooth Settings
+    blueman
+
+    ## Lockscreen
+    hyprlock
+
+    ## Top Bar
     waybar
-    (waybar.overrideAttrs (oldAttrs: {
+    (
+      waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       })
     )
+
+    ## ???
     dunst
+
+    ## Notification Daemone (?)
     libnotify
-    
-    swww
-    
-    broot
-    jq
-    poppler
-    fzf
+
+    ## File Manager
     dolphin
     breeze-icons
-    
-    # cifs-utils
-    
-    networkmanagerapplet
-    alacritty
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
-    rofi-wayland
-    pavucontrol
-    blueman
-    hyprlock
 
+    ## ???
+    swww
+
+    # Clipboard Manager
+    xclip
+
+    # Image Manipulation
     inkscape
     gimp
-    ffmpeg
-    xclip
-    eza
-    bat
-    ripgrep
-    gitFull
-  	rustup
-  	helix
-    # vim
-  	thunderbird
 
+    # Video
+    ffmpeg
     vlc
+
+    # Music
     spotify
+
+    # Terminal
+    alacritty
+
+    ## 'ls' replacement
+    eza
+
+    ## 'cat' replacement
+    bat
+
+    ## 'grep' replacement
+    ripgrep
+
+    ## 'find' replacement
+    fd
+
+    ## Default Tools
+    curl
+    gitFull # git
+    broot # file manager
+    jq # json tool
+    poppler # ???
+    fzf # ???
+
+    # Editor
+    helix
+
+    # Mail Client
+    thunderbird
   ];
 
-  services.xserver.excludePackages = (with pkgs; [
-    nano
-    xterm  
-  ]) ++ ( with pkgs.gnome; [
-    cheese
-    gnome-music
-    epiphany
-    geary
-    totem
-    tali
-    iagno
-    hitori
-    atomix
-  ]);
+  services.xserver.excludePackages =
+    (with pkgs; [
+      nano
+      xterm
+    ])
+    ++ (with pkgs.gnome; [
+      cheese
+      gnome-music
+      epiphany
+      geary
+      totem
+      tali
+      iagno
+      hitori
+      atomix
+    ]);
 
   fileSystems = {
     "/mnt/home" = {
@@ -256,7 +311,6 @@ home-manager = {
       fsType = "cifs";
       options = let
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user";
-
       in ["${automount_opts},credentials=${config.sops.secrets."nas".path},uid=1000,gid=1010"];
     };
     "/mnt/shared" = {
@@ -264,17 +318,15 @@ home-manager = {
       fsType = "cifs";
       options = let
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user";
-
       in ["${automount_opts},credentials=${config.sops.secrets."nas".path},uid=1000,gid=1010"];
     };
   };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    # Add any missing dynamic libraries for unpackaged 
+    # Add any missing dynamic libraries for unpackaged
     # programs here, NOT in environment.systemPackages
   ];
 
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
