@@ -243,6 +243,14 @@ home-manager = {
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user";
       in ["${automount_opts},credentials=${config.sops.secrets."nas".path},uid=1000,gid=1010"];
     };
+    "/mnt/music" = {
+      device = "//192.168.128.2/music";
+      fsType = "cifs";
+      label = "HOME";
+      options = let
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user";
+      in ["${automount_opts},credentials=${config.sops.secrets."nas".path},uid=1000,gid=1010"];
+    };
     "/mnt/scan" = {
       device = "//192.168.128.2/scan";
       fsType = "cifs";
