@@ -1,2 +1,21 @@
 building the system configuration...
 warning: Git tree '/etc/nixos' is dirty
+these 18 derivations will be built:
+  /nix/store/p2mii7339mdzyhag4j8aagb5s65vrdjw-nixos-version.drv
+  /nix/store/a1y6yhslcq22mzppfl52v6i2hm3kl35d-system-path.drv
+  /nix/store/1xb5ppq4gmawds33yham45j6dryviavs-dbus-1.drv
+  /nix/store/djp4g9j80lay8rm7v6x4xvay99fl4bsi-etc-pam-environment.drv
+  /nix/store/i6mkwfapfyl3bl641wigg7wdi17czr5f-X-Restart-Triggers-dbus.drv
+  /nix/store/bj42hi6vj1nsgq2ii4qb4cx20kxamify-unit-dbus.service.drv
+  /nix/store/f3yqvzmmj1m9xnjb78xgpjz44yarg9vs-user-units.drv
+  /nix/store/qhsg5dbzhzjz2i2jkgp5lp6svdf34c23-set-environment.drv
+  /nix/store/q9g74j9a5qnmmr3b4lhrmc05cbx8490w-etc-profile.drv
+  /nix/store/86m52xgizinbwcx2xfh5z6plfxxi7fpl-unit-dbus.service.drv
+  /nix/store/c3vz0k0s1gzvs1l79yw225px2cr2ja5p-unit-home-manager-root.service.drv
+  /nix/store/cj40jri980wf7dw71lngq9g1g12spgzs-unit-accounts-daemon.service.drv
+  /nix/store/8npl4dnqq70aqwvz9jl1agyzrnx5rcv4-X-Restart-Triggers-polkit.drv
+  /nix/store/ljmaz0krqhji8hvz706v18qi5ard3l4a-unit-polkit.service.drv
+  /nix/store/s9c5qkb9wr57mb5pwmxmvfyy5lslhfwc-unit-home-manager-itsscb.service.drv
+  /nix/store/xg5b7v0ib84j559sxpff7y3z0ydpdw09-system-units.drv
+  /nix/store/7cabla1rgkh95qb9b2v7pvhlgsbfr1jm-etc.drv
+  /nix/store/m8k3s40fifzswnj10j9wrkrm99v8lvf4-nixos-system-scbnb-24.05.20240509.f1010e0.drv

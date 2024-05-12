@@ -6,14 +6,24 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  home-manager = builtins.fetchTarball {
+    url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+    sha256 = "0bhwgi7mjrngv1fyv8cl0iwqkn1al7dj65rbw1b6wffrq776x572";
+  };
+  sops = builtins.fetchTarball {
+    url = "https://github.com/Mic92/sops-nix/archive/master.tar.gz";
+    sha256 = "1wzm5hs3cda6l7q9ls5nw16bifb00v5kan1xcab57bb5fg6qqnyb";
+  };
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
-
+    # inputs.home-manager.nixosModules.default
+    (import "${home-manager}/nixos")
+    (import "${sops}/modules/sops")
     # Secrets Manager
-    inputs.sops-nix.nixosModules.sops
+    # inputs.sops-nix.nixosModules.sops
   ];
 
   sops.validateSopsFiles = false;
@@ -114,6 +124,14 @@
   ];
 
   programs = {
+    # home-manager = {
+    #   enable = true;
+    # };
+
+    # sops-nix = {
+    #   enable = true;
+    # };
+
     steam = {
       enable = true;
     };
