@@ -277,7 +277,7 @@ in {
     ## Default Tools
     curl
     gitFull # git
-    broot # file manager
+    # broot # file manager
     yazi # file manager
     jq # json tool
     poppler # ???
