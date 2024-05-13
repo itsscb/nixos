@@ -20,11 +20,13 @@ in {
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.initrd.luks.devices."luks-368f684f-d514-405f-a909-fb4488d19183".device = "/dev/disk/by-uuid/368f684f-d514-405f-a909-fb4488d19183";
-
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    initrd.luks.devices."luks-368f684f-d514-405f-a909-fb4488d19183".device = "/dev/disk/by-uuid/368f684f-d514-405f-a909-fb4488d19183";
+  };
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking = {
