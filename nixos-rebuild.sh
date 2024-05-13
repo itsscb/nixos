@@ -45,8 +45,8 @@ sudo nixos-rebuild switch &>nixos-switch.log || (cat nixos-switch.log | grep --c
 
 echo -e ": Rebuild successful. Committing changes..."
 # Get current generation metadata
-current=$(nixos-rebuild list-generations --json | jq '.[0]')
-
+# current=$(nix-instantiate --eval -I ./configuration.nix '<nixpkgs/nixos>' -A config.system.build.toplevel.drvPath | grep -ow '(\d|\w){32}')
+current=$(nix-instantiate --eval -I ./configuration.nix '<nixpkgs/nixos>' -A config.system.build.toplevel.drvPath | grep -owP '(\d|\w){32}')
 echo -e ": $current"
 # Commit all changes witih the generation metadata
 sudo git commit -am "$current"
