@@ -3,8 +3,7 @@
   pkgs,
   inputs,
   ...
-}: 
-{
+}: {
   home.username = "itsscb";
   home.homeDirectory = "/home/itsscb";
 
@@ -27,7 +26,7 @@
       size = 10;
     };
   };
-  
+
   programs = {
     helix = {
       enable = true;

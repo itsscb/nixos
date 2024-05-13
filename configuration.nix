@@ -15,12 +15,8 @@ in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # inputs.home-manager.nixosModules.default
-   # (import "${home-manager}/nixos")
-  <home-manager/nixos>
+    <home-manager/nixos>
     (import "${sops}/modules/sops")
-    # Secrets Manager
-    # inputs.sops-nix.nixosModules.sops
   ];
 
   # Bootloader.
@@ -28,12 +24,14 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."luks-368f684f-d514-405f-a909-fb4488d19183".device = "/dev/disk/by-uuid/368f684f-d514-405f-a909-fb4488d19183";
-  networking.hostName = "scbnb"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "scbnb"; # Define your hostname.
+    networkmanager.enable = true;
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -53,42 +51,41 @@ in {
     LC_TIME = "de_DE.UTF-8";
   };
 
-
-    services.displayManager.sddm = {
+  services = {
+    displayManager.sddm = {
       enable = true;
     };
-  services.xserver = {
-    enable = true;
-    desktopManager.gnome = {
+    xserver = {
       enable = true;
+      desktopManager.gnome = {
+        enable = true;
+      };
+
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+      excludePackages =
+        (with pkgs; [
+          nano
+          xterm
+        ])
+        ++ (with pkgs.gnome; [
+          cheese
+          gnome-music
+          epiphany
+          geary
+          totem
+          tali
+          iagno
+          hitori
+          atomix
+        ]);
     };
 
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-excludePackages =
-    (with pkgs; [
-      nano
-      xterm
-    ])
-    ++ (with pkgs.gnome; [
-      cheese
-      gnome-music
-      epiphany
-      geary
-      totem
-      tali
-      iagno
-      hitori
-      atomix
-    ]);
-
+    # Enable CUPS to print documents.
+    printing.enable = true;
   };
-  
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -167,24 +164,23 @@ excludePackages =
     nvidia.modesetting.enable = true;
   };
 
- home-manager = {
-   # extraSpecialArgs = {inherit inputs;};
-   backupFileExtension = "backup";
-   users = {
-    "itsscb" = (import ./home.nix);
-     "root" = {
-       home.stateVersion = "23.11";
-       home.file.".config/helix".source = ./dotfiles/helix;
-       programs.bash = {
-         enable = true;
-         shellAliases = {
-           ls = "eza -la --git";
-           grep = "rg";
-           cat = "bat";
-         };
-       };
-     };
-   };
+  home-manager = {
+    backupFileExtension = "backup";
+    users = {
+      "itsscb" = import ./home.nix;
+      "root" = {
+        home.stateVersion = "23.11";
+        home.file.".config/helix".source = ./dotfiles/helix;
+        programs.bash = {
+          enable = true;
+          shellAliases = {
+            ls = "eza -la --git";
+            grep = "rg";
+            cat = "bat";
+          };
+        };
+      };
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -219,7 +215,7 @@ excludePackages =
     blueman
 
     ## Lockscreen
-   hyprlock
+    hyprlock
 
     ## Top Bar
     waybar

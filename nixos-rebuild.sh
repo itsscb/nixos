@@ -37,14 +37,17 @@ echo -n "NixOS - Testing new configuration..."
 # Rebuild, output simplified errors, log trackebacks
 sudo nixos-rebuild dry-build &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
 
-echo -e 'KNixOS - Test passed. Adding files to git'
+echo -e ': Test passed. Adding files to git'
 sudo git add *
 
-echo -e "NixOS - Rebuilding..."
+echo -n "NixOS - Rebuilding..."
 sudo nixos-rebuild switch &>nixos-switch.log || (cat nixos-switch.log | grep --color error && sudo git restore --staged ./**/*.nix && cd - && exit 1)
-# Get current generation metadata
-current=$(sudo nixos-rebuild list-generations | grep current)
 
+echo -e ": Rebuild successful. Committing changes..."
+# Get current generation metadata
+current=$(nixos-rebuild list-generations --json | jq '.[0]')
+
+echo -e ": $current"
 # Commit all changes witih the generation metadata
 sudo git commit -am "$current"
 
