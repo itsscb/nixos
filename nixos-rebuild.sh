@@ -7,9 +7,6 @@ if [ -z "$1"]
     file=$1
 fi
 
-# A rebuild script that commits on a successful build
-set -e
-
 # cd to your config dir
 cd /etc/nixos/
 
@@ -25,6 +22,9 @@ fi
 
 sudo rm nixos-switch.log
 
+# A rebuild script that commits on a successful build
+set -e
+
 # Autoformat your nix files
 sudo alejandra . &>/dev/null \
   || ( sudo alejandra . ; echo "formatting failed!" && exit 1)
@@ -35,15 +35,15 @@ sudo git diff -U0 '*.nix'
 echo -n "NixOS - Testing new configuration..."
 
 # Rebuild, output simplified errors, log trackebacks
-sudo nixos-rebuild dry-build --flake .#default &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+sudo nixos-rebuild dry-build &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
 
 echo -e 'KNixOS - Test passed. Adding files to git'
 sudo git add *
 
 echo -e "NixOS - Rebuilding..."
-sudo nixos-rebuild dry-build --flake .#default &>nixos-switch.log || (cat nixos-switch.log | grep --color error && sudo git restore --staged ./**/*.nix && cd - && exit 1)
+sudo nixos-rebuild switch &>nixos-switch.log || (cat nixos-switch.log | grep --color error && sudo git restore --staged ./**/*.nix && cd - && exit 1)
 # Get current generation metadata
-current=$(sudo nixos-version --json | jq .configurationRevision)
+current=$(sudo nixos-rebuild list-generations | grep current)
 
 # Commit all changes witih the generation metadata
 sudo git commit -am "$current"
