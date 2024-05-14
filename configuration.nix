@@ -267,6 +267,7 @@ in {
 
     # Terminal
     alacritty
+    kitty
 
     ## 'ls' replacement
     eza
