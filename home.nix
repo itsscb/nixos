@@ -111,7 +111,7 @@
     bash = {
       enable = true;
       shellAliases = {
-        ls = "eza -la --git";
+        ls = "eza -l --git";
         grep = "rg";
         cat = "bat";
       };
