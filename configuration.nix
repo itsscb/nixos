@@ -207,8 +207,8 @@ in {
     age
 
     # SDDM Login Screen requirements
-    # libsforqt5.qt5.qtquickcontrols2
-    # libsforqt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtgraphicaleffects
 
     # Hyprland / Window Manager
     xdg-desktop-portal-gtk
