@@ -194,6 +194,7 @@ in {
 
   xdg.portal.enable = true;
 
+  qt.enable = true;
   environment.systemPackages = with pkgs; [
     # nix specific
     ## Secrets Manager
@@ -204,6 +205,10 @@ in {
 
     # Encryption
     age
+
+    # SDDM Login Screen requirements
+    # libsforqt5.qt5.qtquickcontrols2
+    # libsforqt5.qt5.qtgraphicaleffects
 
     # Hyprland / Window Manager
     xdg-desktop-portal-gtk
