@@ -1,33 +1,6 @@
 building Nix...
 building the system configuration...
-trace: warning: itsscb profile: The option `qt.platformTheme` has been renamed to `qt.platformTheme.name`.
-these 4 derivations will be built:
-  /nix/store/bj3ygwvi1d46fna0b39y95lfg59c521k-sddm-theme-dawn.drv
-  /nix/store/vc0kswdn30mil5wd54dpcsxacgqnfdzm-sddm.conf.drv
-  /nix/store/2xcnx008fz0vgxzaq1si3i167qcqz3g9-etc.drv
-  /nix/store/nvbvjbg5v0sd7lqsfy59ky5gdibf7kpd-nixos-system-scbnb-24.05pre625274.205781405197.drv
-building '/nix/store/bj3ygwvi1d46fna0b39y95lfg59c521k-sddm-theme-dawn.drv'...
-Running phase: unpackPhase
-unpacking source archive /nix/store/657h6dgfxlnyaxs41ba53ln44jmya9q2-source
-source root is source
-Running phase: patchPhase
-Running phase: updateAutotoolsGnuConfigScriptsPhase
-Running phase: configurePhase
-no configure script, doing nothing
-Running phase: buildPhase
-no Makefile or custom buildPhase, doing nothing
-Running phase: installPhase
-Running phase: fixupPhase
-shrinking RPATHs of ELF executables and libraries in /nix/store/v94wl3fc1x81vq4v6fgli9c1mjan6if6-sddm-theme-dawn
-checking for references to /build/ in /nix/store/v94wl3fc1x81vq4v6fgli9c1mjan6if6-sddm-theme-dawn...
-patching script interpreter paths in /nix/store/v94wl3fc1x81vq4v6fgli9c1mjan6if6-sddm-theme-dawn
-/nix/store/v94wl3fc1x81vq4v6fgli9c1mjan6if6-sddm-theme-dawn/preview.sh: interpreter directive changed from "#! /bin/bash" to "/nix/store/h3bhzvz9ipglcybbcvkxvm4vg9lwvqg4-bash-5.2p26/bin/bash"
-building '/nix/store/vc0kswdn30mil5wd54dpcsxacgqnfdzm-sddm.conf.drv'...
-building '/nix/store/2xcnx008fz0vgxzaq1si3i167qcqz3g9-etc.drv'...
-building '/nix/store/nvbvjbg5v0sd7lqsfy59ky5gdibf7kpd-nixos-system-scbnb-24.05pre625274.205781405197.drv'...
 activating the configuration...
 setting up /etc...
 reloading user units for itsscb...
 restarting sysinit-reactivation.target
-restarting the following units: home-manager-itsscb.service
-the following new units were started: sysinit-reactivation.target, systemd-tmpfiles-resetup.service
