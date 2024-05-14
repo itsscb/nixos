@@ -2,7 +2,7 @@
   imgLink = "https://github.com/itsscb/nixos/blob/master/dotfiles/theme/background_login_rust.png?raw=true";
   image = pkgs.fetchurl {
     url = imgLink;
-    sha256 = "sha256-A6SJPjzcGueivWQZZh29bTb7oQeoLlgrKN660HF4ZWY=";
+    sha256 = "sha256-TVa7iouofa06qDe4OLDFQb8TzeuMXby2QYuZRxuaITg=";
   };
 in
   pkgs.stdenv.mkDerivation {

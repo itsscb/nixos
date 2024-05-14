@@ -55,9 +55,17 @@ in {
   };
 
   services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
+
     displayManager.sddm = {
       enable = true;
-      # theme = "${import ./sddm-theme-dawn.nix {inherit pkgs;}}";
+      theme = "${import ./sddm-theme-dawn.nix {inherit pkgs;}}";
     };
 
     xserver = {
@@ -97,14 +105,6 @@ in {
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
-
   users.groups.fsc = {
     gid = 1010;
   };
