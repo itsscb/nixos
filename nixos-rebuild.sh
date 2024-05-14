@@ -25,10 +25,6 @@ sudo rm nixos-switch.log
 # A rebuild script that commits on a successful build
 set -e
 
-# Autoformat your nix files
-sudo alejandra . &>/dev/null \
-  || ( sudo alejandra . ; echo "formatting failed!" && exit 1)
-
 # Shows your changes
 sudo git diff -U0 '*.nix'
 
@@ -36,6 +32,10 @@ echo -n "NixOS - Testing new configuration..."
 
 # Rebuild, output simplified errors, log trackebacks
 sudo nixos-rebuild dry-build &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+
+# Autoformat your nix files
+sudo alejandra . &>/dev/null \
+  || ( sudo alejandra . ; echo "formatting failed!" && exit 1)
 
 echo -e ': Test passed. Adding files to git'
 sudo git add *
