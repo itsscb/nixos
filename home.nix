@@ -183,7 +183,7 @@
         ];
 
         "$terminal" = "alacritty";
-        "$fileManager" = "alacritty -e yazi";
+        "$fileManager" = "kitty yazi";
         # "$fileManager" = "dolphin";
         "$menu" = "rofi -show drun";
 
