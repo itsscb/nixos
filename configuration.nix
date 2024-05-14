@@ -57,7 +57,7 @@ in {
   services = {
     displayManager.sddm = {
       enable = true;
-      theme = "${import ./sddm-theme-dawn.nix {inherit pkgs;}}";
+      # theme = "${import ./sddm-theme-dawn.nix {inherit pkgs;}}";
     };
 
     xserver = {
@@ -240,7 +240,7 @@ in {
     ## ???
     dunst
 
-    ## Notification Daemone (?)
+    ## Notification Daemon (?)
     libnotify
 
     ## File Manager

@@ -123,6 +123,7 @@
       userEmail = "dev@itsscb.de";
       extraConfig = {
         credential.helper = "store";
+        http.postBuffer = 157286400;
       };
     };
 

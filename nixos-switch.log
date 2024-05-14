@@ -1,21 +1,19 @@
 building Nix...
 building the system configuration...
 these 5 derivations will be built:
-  /nix/store/x2124vp15g4g7w7hx2417d1r6y30jmmr-background_login_rust.png?raw=true.drv
-  /nix/store/sfhm0d449384s51lxjhrxz68160zq6kz-sddm-theme.drv
-  /nix/store/yg6qiynki1a1i44n80g26108p8ascjyb-sddm.conf.drv
-  /nix/store/ds8yflssc4zkj8b5406yxqxwaimqr7mm-etc.drv
-  /nix/store/i4akn4y9fipfvlavsarkgy2yb7kxkqfb-nixos-system-scbnb-24.05pre625274.205781405197.drv
-building '/nix/store/x2124vp15g4g7w7hx2417d1r6y30jmmr-background_login_rust.png?raw=true.drv'...
-
-trying https://github.com/itsscb/nixos/blob/master/dotfiles/theme/background_login_rust.png?raw=true
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-curl: (56) The requested URL returned error: 404
-error: cannot download background_login_rust.png?raw=true from any mirror
-error: builder for '/nix/store/x2124vp15g4g7w7hx2417d1r6y30jmmr-background_login_rust.png?raw=true.drv' failed with exit code 1
-error: 1 dependencies of derivation '/nix/store/sfhm0d449384s51lxjhrxz68160zq6kz-sddm-theme.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/yg6qiynki1a1i44n80g26108p8ascjyb-sddm.conf.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/ds8yflssc4zkj8b5406yxqxwaimqr7mm-etc.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/i4akn4y9fipfvlavsarkgy2yb7kxkqfb-nixos-system-scbnb-24.05pre625274.205781405197.drv' failed to build
+  /nix/store/v2acvfzh9l96c8xq79lb7jv1kqv5056j-home-manager-generation.drv
+  /nix/store/s6v6hjnyc8c81ls7ylzw3iwzs4gfq9md-unit-home-manager-itsscb.service.drv
+  /nix/store/kzzn4vsp5p8lq4nb3x52nbjamsjvj1qj-system-units.drv
+  /nix/store/8wh8wr72blj9iqhzw8j58xswzvgj6jzv-etc.drv
+  /nix/store/yblcg19xam9fw857a24i7w83r7q5994v-nixos-system-scbnb-24.05pre625274.205781405197.drv
+building '/nix/store/v2acvfzh9l96c8xq79lb7jv1kqv5056j-home-manager-generation.drv'...
+building '/nix/store/s6v6hjnyc8c81ls7ylzw3iwzs4gfq9md-unit-home-manager-itsscb.service.drv'...
+building '/nix/store/kzzn4vsp5p8lq4nb3x52nbjamsjvj1qj-system-units.drv'...
+building '/nix/store/8wh8wr72blj9iqhzw8j58xswzvgj6jzv-etc.drv'...
+building '/nix/store/yblcg19xam9fw857a24i7w83r7q5994v-nixos-system-scbnb-24.05pre625274.205781405197.drv'...
+activating the configuration...
+setting up /etc...
+modifying secret: git
+reloading user units for itsscb...
+restarting sysinit-reactivation.target
+restarting the following units: home-manager-itsscb.service
