@@ -21,7 +21,7 @@ in
       cp -r ${image} $out/Background.jpg
       sed -i -e 's/Font="Noto Sans"/Font="FiraCode"/g' $out/theme.conf
       sed -i -e 's/MainColor="navajowhite"/MainColor="white"/g' $out/theme.conf
-      sed -i -e 's/AccentColor="white"/AccentColor="navajowhite"/g' $out/theme.conf
+      sed -i -e 's/AccentColor="white"/AccentColor="#3f8d44"/g' $out/theme.conf
       sed -i -e 's/ForceHideCompletePassword=false/ForceHideCompletePassword=true/g' $out/theme.conf
       sed -i -e 's/HeaderText=Welcome!/HeaderText=Good Morning Sunshine/g' $out/theme.conf
       echo 'ThemeColor="black"' >> $out/theme.conf
