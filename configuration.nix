@@ -57,6 +57,7 @@ in {
   services = {
     displayManager.sddm = {
       enable = true;
+      theme = "${import ./sddm-theme-dawn.nix {inherit pkgs;}}";
     };
 
     xserver = {
