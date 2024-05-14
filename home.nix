@@ -305,6 +305,7 @@
   home.file = {
     ".config/hypr/hyprlock.conf".source = ./dotfiles/hypr/hyprlock.conf;
     ".config/waybar".source = ./dotfiles/waybar;
+    ".config/rofi/config.rasi".source = ./dotfiles/rofi/config.rasi;
   };
 
   home.sessionVariables = {
