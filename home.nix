@@ -34,6 +34,27 @@
   };
 
   programs = {
+    thunderbird = {
+      enable = true;
+      settings = {
+        "privacy.donottrackheader.enabled" = true;
+      };
+
+      profiles = {
+        "itsscb" = {
+          # settings = {
+          #   "mail.spellcheck.inline" = false;
+          # };
+        };
+        "b.sc" = {
+          isDefault = true;
+          # settings = {
+          #   "mail.spellcheck.inline" = false;
+          # };
+        };
+      };
+    };
+
     helix = {
       enable = true;
       defaultEditor = true;
