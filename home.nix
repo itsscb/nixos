@@ -33,46 +33,46 @@
     style.name = "adwaita-dark";
   };
 
-  accounts = {
-    email = {
-      accounts = {
-        "itsscb" = {
-          primary = true;
-          thunderbird.profiles = ["itsscb"];
-          address = "dev@itsscb.de";
-          imap = {
-            host = "smtp.strato.de";
-            port = 465;
-            tls = {
-              enable = true;
-            };
-          };
-        };
-      };
-    };
-  };
+  # accounts = {
+  #   email = {
+  #     accounts = {
+  #       "itsscb" = {
+  #         primary = true;
+  #         thunderbird.profiles = ["itsscb"];
+  #         address = "dev@itsscb.de";
+  #         imap = {
+  #           host = "smtp.strato.de";
+  #           port = 465;
+  #           tls = {
+  #             enable = true;
+  #           };
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
 
   programs = {
-    thunderbird = {
-      enable = true;
-      settings = {
-        "privacy.donottrackheader.enabled" = true;
-      };
+    # thunderbird = {
+    #   enable = true;
+    #   settings = {
+    #     "privacy.donottrackheader.enabled" = true;
+    #   };
 
-      profiles = {
-        "itsscb" = {
-          isDefault = true;
-          # settings = {
-          #   "mail.spellcheck.inline" = false;
-          # };
-        };
-        "b.sc" = {
-          # settings = {
-          #   "mail.spellcheck.inline" = false;
-          # };
-        };
-      };
-    };
+    #   profiles = {
+    #     "itsscb" = {
+    #       isDefault = true;
+    #       # settings = {
+    #       #   "mail.spellcheck.inline" = false;
+    #       # };
+    #     };
+    #     "b.sc" = {
+    #       # settings = {
+    #       #   "mail.spellcheck.inline" = false;
+    #       # };
+    #     };
+    #   };
+    # };
 
     helix = {
       enable = true;
