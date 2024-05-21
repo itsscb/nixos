@@ -3,7 +3,22 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  stylixpkg = pkgs.fetchFromGitHub {
+    owner = "danth";
+    repo = "stylix";
+    rev = "release-23.11";
+    sha256 = "";
+  };
+in {
+  # imports = [
+  #   (import stylixpkg).homeManagerModules.stylix
+  # ];
+
+  # stylix = {
+  # image = "./dotfiles/hypr/rust.png";
+  # autoEnable = true;
+  # };
   home.username = "itsscb";
   home.homeDirectory = "/home/itsscb";
 
