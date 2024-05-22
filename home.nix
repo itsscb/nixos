@@ -299,10 +299,6 @@
           "$mod, mouse:273, resizewindow"
         ];
 
-        binds = [
-          "$mod, SHIFT, S, 1, movetoworkspace, empty"
-        ];
-
         bind =
           [
             "$mod, T, exec, $terminal"
