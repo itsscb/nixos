@@ -319,7 +319,7 @@
             "$mod, J, movefocus, d"
             "$mod, S, togglespecialworkspace, magic"
             "$mod SHIFT, S, movetoworkspace, special:magic"
-            "$mod SHIFT, S, 1, movetoworkspace, 1"
+            "$mod SHIFT, S, 1, movetoworkspace, empty"
             "$mod, mouse_down, workspace, e+1"
             "$mod, mouse_up, workspace, e-1"
           ]
