@@ -300,8 +300,9 @@
         ];
 
         binds = [
-          "$mod SHIFT, S, 1, movetoworkspace, empty"
+          "$mod, SHIFT, S, 1, movetoworkspace, empty"
         ];
+
         bind =
           [
             "$mod, T, exec, $terminal"
