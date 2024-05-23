@@ -199,7 +199,7 @@ in {
         "text/html" = "chromium-browser.desktop";
         "application/pdf" = "evince";
         "text/*" = "Helix.desktop";
-        "image/*" = "loupe";
+        "image/png" = "loupe";
       };
     };
   };
