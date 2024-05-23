@@ -199,7 +199,7 @@ in {
         "text/html" = "chromium-browser.desktop";
         "application/pdf" = "org.gnome.Evince.desktop";
         "text/*" = "Helix.desktop";
-        "image/*" = "org.gnome.Loupe.desktop";
+        "image/png" = "org.gnome.Loupe.desktop";
         "video/*" = "vlc.desktop";
         "audio/*" = "vlc.desktop";
         "x-scheme-handler/http" = "chromium-browser.desktop";
