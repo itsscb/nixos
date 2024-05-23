@@ -198,10 +198,13 @@ in {
       defaultApplications = {
         "text/html" = "chromium-browser.desktop";
         "application/pdf" = "org.gnome.Evince.desktop";
-        "text/*" = "Helix.desktop";
+        "text/plain" = "Helix.desktop";
         "image/png" = "org.gnome.Loupe.desktop";
-        "video/*" = "vlc.desktop";
-        "audio/*" = "vlc.desktop";
+        "image/jpeg" = "org.gnome.Loupe.desktop";
+        "image/gif" = "org.gnome.Loupe.desktop";
+        "image/jpg" = "org.gnome.Loupe.desktop";
+        "video/mp4" = "vlc.desktop";
+        "audio/mpeg" = "vlc.desktop";
         "x-scheme-handler/http" = "chromium-browser.desktop";
         "x-scheme-handler/https" = "chromium-browser.desktop";
         "inode/directory" = "yazi.desktop";
