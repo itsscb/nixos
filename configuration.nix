@@ -192,8 +192,17 @@ in {
 
   nixpkgs.config.allowUnfree = true;
 
-  xdg.portal.enable = true;
-
+  xdg = {
+    portal.enable = true;
+    mime = {
+      defaultApplications = {
+        "text/html" = "chromium-browser.desktop";
+        "application/pdf" = "evince";
+        "text/*" = "Helix.desktop";
+        "image/*" = "loupe";
+      };
+    };
+  };
   qt.enable = true;
   environment.systemPackages = with pkgs; [
     # nix specific
