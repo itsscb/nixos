@@ -197,9 +197,14 @@ in {
     mime = {
       defaultApplications = {
         "text/html" = "chromium-browser.desktop";
-        "application/pdf" = "evince";
+        "application/pdf" = "org.gnome.Evince.desktop";
         "text/*" = "Helix.desktop";
-        "image/png" = "loupe";
+        "image/*" = "org.gnome.Loupe.desktop";
+        "video/*" = "vlc.desktop";
+        "audio/*" = "vlc.desktop";
+        "x-scheme-handler/http" = "chromium-browser.desktop";
+        "x-scheme-handler/https" = "chromium-browser.desktop";
+        "inode/directory" = "yazi.desktop";
       };
     };
   };
