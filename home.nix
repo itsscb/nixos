@@ -175,7 +175,7 @@
       enable = true;
       commandLineArgs = [
         "--disable-default-apps"
-        "--homepage https://start.duckduckgo.com"
+        "--homepage https://perplexity.ai"
         "--start-maximized"
         "--enable-features=WebContentsForceDark"
         "--force-dark-mode"

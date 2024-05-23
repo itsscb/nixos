@@ -143,7 +143,7 @@ in {
 
     chromium = {
       enable = true;
-      homepageLocation = "https://start.duckduckgo.com";
+      homepageLocation = "https://perplexity.ai";
       extraOpts = {
         syncDisabled = true;
         BrowserSignin = 0;
@@ -151,7 +151,7 @@ in {
         SpellcheckEnabled = false;
       };
       defaultSearchProviderEnabled = true;
-      defaultSearchProviderSearchURL = "https://start.duckduckgo.com/?q={searchTerms}";
+      defaultSearchProviderSearchURL = "https://perplexity.ai/search?q={searchTerms}";
     };
   };
 
