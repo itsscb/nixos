@@ -270,7 +270,8 @@ in {
 
     # Clipboard Manager
     # xclip
-    xsel
+    # xsel
+    wl-clipboard
 
     # Image Manipulation
     inkscape
