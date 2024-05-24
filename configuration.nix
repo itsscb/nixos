@@ -269,7 +269,8 @@ in {
     swww
 
     # Clipboard Manager
-    xclip
+    # xclip
+    xsel
 
     # Image Manipulation
     inkscape
