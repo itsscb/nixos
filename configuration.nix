@@ -98,7 +98,12 @@ in {
     };
 
     # Enable CUPS to print documents.
-    printing.enable = true;
+    printing = {
+      enable = true;
+      drivers = [
+        pkgs.gutenprint
+      ];
+    };
   };
 
   # Enable sound with pipewire.
@@ -169,6 +174,19 @@ in {
   hardware = {
     opengl.enable = true;
     nvidia.modesetting.enable = true;
+
+    printers = {
+      ensurePrinters = [
+        {
+          name = "ITSP0001";
+          deviceUri = "ipp://192.168.128.3/ipp/print";
+          # model = "Kyocera/Kyocera-ECOSYS-M5526cdn.ppd.gz";
+          model = "drv:///sample.drv/generic.ppd";
+
+          # model = "Kyocera/Kyocera-FS-1025MFP-KPDL-en.ppd.gz";
+        }
+      ];
+    };
   };
 
   home-manager = {

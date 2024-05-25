@@ -1,140 +1,18 @@
 building Nix...
 building the system configuration...
-these 15 derivations will be built:
-  /nix/store/c7y3li7rj5qfkj3kv4dbl5lhlfm5h4bc-system-path.drv
-  /nix/store/0flmdyczqjixhwfm0y99aiy3g57fwc9b-etc-pam-environment.drv
-  /nix/store/c43mfwg9ypvhkqcs06vg124524fcdn94-dbus-1.drv
-  /nix/store/z255c3al56rgxh34sv9h1jfsqqx225cy-X-Restart-Triggers-dbus.drv
-  /nix/store/82n6z1f324hpggn17iny817dwkbz9dbh-unit-dbus.service.drv
-  /nix/store/pk9h05480nxy7c7y7ncsycv9p4s9y6g7-set-environment.drv
-  /nix/store/ia8j4y5x963k1cyhlqqa0cb7pz39lpgd-etc-profile.drv
-  /nix/store/rv123ksfmyzk37ap7gw405w66gi4hyg4-X-Restart-Triggers-polkit.drv
-  /nix/store/nyvb1r25zzvvd5wgczpmzmrwgi4xr81y-unit-polkit.service.drv
-  /nix/store/zb5zd05diwgah77drgq3j3fbqs10vwhm-unit-accounts-daemon.service.drv
-  /nix/store/vqsddirx626nsmmcy7n2z6xkz5vj0z5i-system-units.drv
-  /nix/store/pgcfjabr5xi54l7lk91k3lwwrkqaq5jv-unit-dbus.service.drv
-  /nix/store/x0ninyfwwxp4h0wh41jpa8dr7c4q8lwk-user-units.drv
-  /nix/store/d3dikcfqwr447i395ydfp6pibqsz69gx-etc.drv
-  /nix/store/8msh8rm250v3can13xnrc8yl40s209wb-nixos-system-scbnb-24.05pre625274.205781405197.drv
-this path will be fetched (0.03 MiB download, 0.14 MiB unpacked):
-  /nix/store/83ggxf3q4vgi0imiqc2z4x38vl84a9x9-wl-clipboard-2.2.1
-copying path '/nix/store/83ggxf3q4vgi0imiqc2z4x38vl84a9x9-wl-clipboard-2.2.1' from 'https://cache.nixos.org'...
-building '/nix/store/c7y3li7rj5qfkj3kv4dbl5lhlfm5h4bc-system-path.drv'...
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/etc/xdg/waybar/config.jsonc' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/etc/xdg/waybar/config.jsonc'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/etc/xdg/waybar/style.css' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/etc/xdg/waybar/style.css'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/bin/.waybar-wrapped' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/bin/.waybar-wrapped'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/bin/waybar' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/bin/waybar'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/lib/pkgconfig/cava.pc' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/lib/pkgconfig/cava.pc'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/lib/libcava.so' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/lib/libcava.so'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/consolefonts/cava.psf' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/consolefonts/cava.psf'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-bluetooth.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-bluetooth.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-hyprland-language.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-hyprland-language.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-states.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-states.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-keyboard-state.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-keyboard-state.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-inhibitor.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-inhibitor.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-cpu.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-cpu.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-tray.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-tray.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-cava.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-cava.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-idle-inhibitor.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-idle-inhibitor.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-battery.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-battery.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-custom.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-custom.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-mpris.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-mpris.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-privacy.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-privacy.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-river-window.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-river-window.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-hyprland-workspaces.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-hyprland-workspaces.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-gamemode.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-gamemode.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-systemd-failed-units.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-systemd-failed-units.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-image.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-image.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-dwl-window.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-dwl-window.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-pulseaudio-slider.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-pulseaudio-slider.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-sway-window.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-sway-window.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-clock.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-clock.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-wlr-taskbar.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-wlr-taskbar.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-upower.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-upower.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-memory.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-memory.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-sway-language.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-sway-language.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-styles.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-styles.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-sndio.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-sndio.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-pulseaudio.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-pulseaudio.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-network.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-network.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-sway-mode.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-sway-mode.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-sway-workspaces.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-sway-workspaces.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-backlight-slider.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-backlight-slider.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-mpd.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-mpd.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-power-profiles-daemon.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-power-profiles-daemon.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-dwl-tags.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-dwl-tags.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-hyprland-submap.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-hyprland-submap.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-wireplumber.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-wireplumber.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-jack.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-jack.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-river-layout.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-river-layout.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-sway-scratchpad.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-sway-scratchpad.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-temperature.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-temperature.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-cffi.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-cffi.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-river-mode.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-river-mode.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-disk.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-disk.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-hyprland-window.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-hyprland-window.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-backlight.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-backlight.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-river-tags.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-river-tags.5.gz'
-warning: collision between `/nix/store/yzn4qv0xv90b2afcrvk5s5yy0pr6nz5w-waybar-0.10.3/share/man/man5/waybar-wlr-workspaces.5.gz' and `/nix/store/hllyvaz85w16qd6ds9rmygdqzjwm26ll-waybar-0.10.3/share/man/man5/waybar-wlr-workspaces.5.gz'
-warning: collision between `/nix/store/7q83znq247cfc65h3zzq6l82z8dr9d56-xwayland-23.2.6/lib/xorg/protocol.txt' and `/nix/store/0c9wn8nb04qs9kyh2zhll4wzjmp0fmag-xorg-server-21.1.13/lib/xorg/protocol.txt'
-warning: collision between `/nix/store/7q83znq247cfc65h3zzq6l82z8dr9d56-xwayland-23.2.6/share/man/man1/Xserver.1.gz' and `/nix/store/0c9wn8nb04qs9kyh2zhll4wzjmp0fmag-xorg-server-21.1.13/share/man/man1/Xserver.1.gz'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/lib/systemd/user/xdg-desktop-portal-gtk.service' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/lib/systemd/user/xdg-desktop-portal-gtk.service'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/dbus-1/services/org.freedesktop.impl.portal.desktop.gtk.service' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/dbus-1/services/org.freedesktop.impl.portal.desktop.gtk.service'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/xdg-desktop-portal/portals/gtk.portal' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/xdg-desktop-portal/portals/gtk.portal'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/systemd/user/xdg-desktop-portal-gtk.service' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/systemd/user/xdg-desktop-portal-gtk.service'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/applications/xdg-desktop-portal-gtk.desktop' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/applications/xdg-desktop-portal-gtk.desktop'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/lt/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/lt/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/it/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/it/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/sv/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/sv/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/es/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/es/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/sr/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/sr/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/ru/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/ru/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/en_GB/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/en_GB/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/pt_BR/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/pt_BR/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/pt/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/pt/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/ka/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/ka/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/id/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/id/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/zh_CN/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/zh_CN/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/tr/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/tr/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/gl/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/gl/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/de/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/de/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/hi/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/hi/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/sk/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/sk/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/fr/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/fr/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/pl/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/pl/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/cs/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/cs/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/hu/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/hu/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/nl/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/nl/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/uk/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/uk/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/be/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/be/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/he/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/he/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/da/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/da/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/ca/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/ca/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/zh_TW/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/zh_TW/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/oc/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/oc/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-warning: collision between `/nix/store/p49apqjpm9y0vxhss7016gqg46l4qb6x-xdg-desktop-portal-gtk-1.15.1/share/locale/hr/LC_MESSAGES/xdg-desktop-portal-gtk.mo' and `/nix/store/0rbi49qngx36swwxzcdjvxqlqciam5cv-xdg-desktop-portal-gtk-1.15.1/share/locale/hr/LC_MESSAGES/xdg-desktop-portal-gtk.mo'
-created 18580 symlinks in user environment
-gtk-update-icon-cache: Cache file created successfully.
-building '/nix/store/rv123ksfmyzk37ap7gw405w66gi4hyg4-X-Restart-Triggers-polkit.drv'...
-building '/nix/store/c43mfwg9ypvhkqcs06vg124524fcdn94-dbus-1.drv'...
-building '/nix/store/0flmdyczqjixhwfm0y99aiy3g57fwc9b-etc-pam-environment.drv'...
-building '/nix/store/pk9h05480nxy7c7y7ncsycv9p4s9y6g7-set-environment.drv'...
-building '/nix/store/zb5zd05diwgah77drgq3j3fbqs10vwhm-unit-accounts-daemon.service.drv'...
-building '/nix/store/z255c3al56rgxh34sv9h1jfsqqx225cy-X-Restart-Triggers-dbus.drv'...
-building '/nix/store/ia8j4y5x963k1cyhlqqa0cb7pz39lpgd-etc-profile.drv'...
-building '/nix/store/nyvb1r25zzvvd5wgczpmzmrwgi4xr81y-unit-polkit.service.drv'...
-building '/nix/store/82n6z1f324hpggn17iny817dwkbz9dbh-unit-dbus.service.drv'...
-building '/nix/store/pgcfjabr5xi54l7lk91k3lwwrkqaq5jv-unit-dbus.service.drv'...
-building '/nix/store/vqsddirx626nsmmcy7n2z6xkz5vj0z5i-system-units.drv'...
-building '/nix/store/x0ninyfwwxp4h0wh41jpa8dr7c4q8lwk-user-units.drv'...
-building '/nix/store/d3dikcfqwr447i395ydfp6pibqsz69gx-etc.drv'...
-building '/nix/store/8msh8rm250v3can13xnrc8yl40s209wb-nixos-system-scbnb-24.05pre625274.205781405197.drv'...
-stopping the following units: accounts-daemon.service
+these 5 derivations will be built:
+  /nix/store/ksfayn61qss6hm3fp07qvxlpxpynf8am-unit-script-ensure-printers-start.drv
+  /nix/store/5sh8kdv4rn7i200x6m31s21h8n33x8jk-unit-ensure-printers.service.drv
+  /nix/store/4dqv326kvzgsbwfwk0wbcps0jz9b7307-system-units.drv
+  /nix/store/jgvy2lqszff4h6nh8xmla70ns9p9dpjd-etc.drv
+  /nix/store/7mhzlrwp88xf8cx41mgmk6p9k1mxxym8-nixos-system-scbnb-24.05pre625274.205781405197.drv
+building '/nix/store/ksfayn61qss6hm3fp07qvxlpxpynf8am-unit-script-ensure-printers-start.drv'...
+building '/nix/store/5sh8kdv4rn7i200x6m31s21h8n33x8jk-unit-ensure-printers.service.drv'...
+building '/nix/store/4dqv326kvzgsbwfwk0wbcps0jz9b7307-system-units.drv'...
+building '/nix/store/jgvy2lqszff4h6nh8xmla70ns9p9dpjd-etc.drv'...
+building '/nix/store/7mhzlrwp88xf8cx41mgmk6p9k1mxxym8-nixos-system-scbnb-24.05pre625274.205781405197.drv'...
 activating the configuration...
 setting up /etc...
 reloading user units for itsscb...
 restarting sysinit-reactivation.target
-reloading the following units: dbus.service
-restarting the following units: polkit.service
-starting the following units: accounts-daemon.service
+the following new units were started: colord.service
