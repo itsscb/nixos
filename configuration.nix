@@ -179,7 +179,8 @@ in {
       ensurePrinters = [
         {
           name = "ITSP0001";
-          deviceUri = "ipp://192.168.128.3/ipp/print";
+          # deviceUri = "ipp://192.168.128.3/ipp/print";
+          deviceUri = "socket://192.168.128.3";
           # model = "Kyocera/Kyocera-ECOSYS-M5526cdn.ppd.gz";
           model = "drv:///sample.drv/generic.ppd";
 
