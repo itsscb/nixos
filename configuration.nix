@@ -236,6 +236,9 @@ in {
     ## Secrets Manager
     sops
 
+    # Password Manager
+    keepassxc
+
     ## nix formatter
     alejandra
 

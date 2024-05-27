@@ -349,6 +349,7 @@
   };
 
   home.sessionVariables = {
+    KEEPASSXC_DATABASE_PATH = "/mnt/home/pwdb.kdbx";
   };
 
   # Let Home Manager install and manage itself.
