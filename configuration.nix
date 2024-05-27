@@ -22,6 +22,9 @@ in {
   # Bootloader.
   boot = {
     loader = {
+      grub = {
+        splashImage = "./dotfiles/hypr/rust.png";
+      };
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
@@ -32,7 +35,6 @@ in {
   networking = {
     hostName = "scbnb"; # Define your hostname.
     networkmanager.enable = true;
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };
 
   # Set your time zone.
@@ -230,6 +232,7 @@ in {
       };
     };
   };
+
   qt.enable = true;
   environment.systemPackages = with pkgs; [
     # nix specific
