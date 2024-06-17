@@ -77,6 +77,50 @@
     helix = {
       enable = true;
       defaultEditor = true;
+  #     languages = {
+  #       rust = {
+  #   enable = true;
+  #   language-servers = ["rust-analyzer"];
+  #   language-server.rust-analyzer = {
+  #   command = "rustup run rust-analyzer";
+  #   config = {
+  #     check.command = "clippy";
+  #     # diagnostics.disabled = ["inactive-code"];
+  #     diagnostics.enableInlineHints = true;
+  #     # inlay-hints.enabled = true;
+  #     # inlay-hints.max-length = 25;
+  #     # lens.enabled = true;
+  #     # lens.run.enable = true;
+  #     # completion.postfix.enable = true;
+  #     # assist.importMergeBehavior = "full";
+  #     # callInfo.full = true;
+  #   };
+  #   };
+  # };
+      # };
+      languages = {
+  rust = {
+    enable = true;
+    language-servers = ["rust-analyzer"];
+    language-server = {
+      rust-analyzer = {
+        # command = "rust-analyzer";
+        command = "rustup run rust-analyzer";
+        config = {
+          check.command = "clippy";
+          diagnostics.enableInlineHints = true;
+          inlay-hints.enabled = true;
+          # inlay-hints.max-length = 25;
+          lens.enabled = true;
+          lens.run.enable = true;
+          completion.postfix.enable = true;
+          assist.importMergeBehavior = "full";
+          callInfo.full = true;
+        };
+      };
+    };
+  };
+};
       settings = {
         theme = "onedark";
         editor = {
