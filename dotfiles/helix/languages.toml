@@ -28,7 +28,9 @@ inlayHints.typeHints.hideClosureInitialization = false
 diagnostics.enableInlineHints = true
 
 check.command = "clippy"
+check.args = ["--", "-W", "clippy::pedantic", "-W", "clippy::nursery", "-W", "clippy::unwrap_used", "-W", "clippy::expect_used"]
 checkOnSave.command = "clippy"
+checkOnSave.args = ["--", "-W", "clippy::pedantic", "-W", "clippy::nursery", "-W", "clippy::unwrap_used", "-W", "clippy::expect_used"]
 
 [keys.normal]
 C-t = ":run-shell-command cargo test -- --nocapture"
