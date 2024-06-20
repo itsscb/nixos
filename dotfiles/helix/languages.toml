@@ -13,24 +13,23 @@ roots = [
 '[' = ']'
 '"' = '"'
 '`' = '`'
-'<' = '>'
 
 [language-server.rust-analyzer]
 command = "rust-analyzer"
 
-[language-server.rust-analyzer.config.check]
-config.check.command = "clippy"
-
 [language-server.rust-analyzer.config]
+inlayHints.bindingModeHints.enable = true
 inlayHints.closingBraceHints.minLines = 10
 inlayHints.closureReturnTypeHints.enable = "with_block"
+inlayHints.discriminantHints.enable = "fieldless"
+inlayHints.lifetimeElisionHints.enable = "skip_trivial"
 inlayHints.typeHints.hideClosureInitialization = false
-# inlayHints.bindingModeHints.enable = false
-# inlayHints.discriminantHints.enable = "fieldless"
-# inlayHints.lifetimeElisionHints.enable = "skip_trivial"
 
+diagnostics.enableInlineHints = true
 
-[[language]]
-name = "go"
-auto-format = true
-formatter = { command = "goimports" }
+check.command = "clippy"
+checkOnSave.command = "clippy"
+
+[keys.normal]
+C-t = ":run-shell-command cargo test -- --nocapture"
+

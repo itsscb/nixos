@@ -77,50 +77,6 @@
     helix = {
       enable = true;
       defaultEditor = true;
-  #     languages = {
-  #       rust = {
-  #   enable = true;
-  #   language-servers = ["rust-analyzer"];
-  #   language-server.rust-analyzer = {
-  #   command = "rustup run rust-analyzer";
-  #   config = {
-  #     check.command = "clippy";
-  #     # diagnostics.disabled = ["inactive-code"];
-  #     diagnostics.enableInlineHints = true;
-  #     # inlay-hints.enabled = true;
-  #     # inlay-hints.max-length = 25;
-  #     # lens.enabled = true;
-  #     # lens.run.enable = true;
-  #     # completion.postfix.enable = true;
-  #     # assist.importMergeBehavior = "full";
-  #     # callInfo.full = true;
-  #   };
-  #   };
-  # };
-      # };
-      languages = {
-  rust = {
-    enable = true;
-    language-servers = ["rust-analyzer"];
-    language-server = {
-      rust-analyzer = {
-        # command = "rust-analyzer";
-        command = "rustup run rust-analyzer";
-        config = {
-          check.command = "clippy";
-          diagnostics.enableInlineHints = true;
-          inlay-hints.enabled = true;
-          # inlay-hints.max-length = 25;
-          lens.enabled = true;
-          lens.run.enable = true;
-          completion.postfix.enable = true;
-          assist.importMergeBehavior = "full";
-          callInfo.full = true;
-        };
-      };
-    };
-  };
-};
       settings = {
         theme = "onedark";
         editor = {
@@ -129,6 +85,8 @@
           auto-completion = true;
           auto-save = true;
           auto-format = true;
+          soft-wrap.enable = true;
+          soft-wrap.max-indent-retain = 80;
           cursorline = true;
           gutters = [
             "diff"
@@ -181,14 +139,13 @@
         };
         keys.insert.j.k = "normal_mode";
         keys.insert."C-c" = "normal_mode";
+        keys.insert."C-right" = ["move_next_word_end" "move_char_right"];
+        keys.insert."C-left" = "move_prev_word_start";
 
         keys.normal.g.a = "code_action";
-        keys.normal.backspace = {
-          r = ":run-shell-command cargo run";
-          t = ":run-shell-command cargo test";
-          b = ":run-shell-command cargo build";
-          c = ":run-shell-command cargo check";
-        };
+        keys.normal."C-s" = ":w";
+        keys.normal."C-right" = ["move_next_word_end" "move_char_right"];
+        keys.normal."C-left" = "move_prev_word_start";
       };
     };
 
@@ -389,6 +346,7 @@
   home.file = {
     ".config/hypr/hyprlock.conf".source = ./dotfiles/hypr/hyprlock.conf;
     ".config/waybar".source = ./dotfiles/waybar;
+    ".config/helix/languages.toml".source = ./dotfiles/helix/languages.toml;
     ".config/rofi/config.rasi".source = ./dotfiles/rofi/config.rasi;
   };
 
