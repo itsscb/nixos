@@ -35,3 +35,9 @@ checkOnSave.args = ["--", "-W", "clippy::pedantic", "-W", "clippy::nursery", "-W
 [keys.normal]
 C-t = ":run-shell-command cargo test -- --nocapture"
 
+[[language]]
+name = "latex"
+auto-format = true
+
+[language-server.texlab]
+command = "texlab"

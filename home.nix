@@ -17,7 +17,7 @@
     };
 
     iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
+      package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
     };
 
@@ -208,7 +208,27 @@
     settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".name = "gt2";
     settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
   };
-  home.packages = [
+  home.packages = with pkgs; [
+    texlab
+    (texlive.combine {
+      inherit (texlive) scheme-full
+      latex-bin
+      latexindent
+      biber
+      biblatex
+      pgf
+      tikz-cd
+      xcolor
+      titlesec
+      fontawesome5
+      fontawesome
+      amsmath
+      amsfonts
+      hyperref
+      geometry
+      fontspec
+      latexmk;
+    })
   ];
   wayland.windowManager = {
     hyprland = {
@@ -291,9 +311,9 @@
           };
         };
 
-        master = {
-          new_is_master = false;
-        };
+        # master = {
+        #   new_is_master = false;
+        # };
 
         bindm = [
           "$mod, mouse:272, movewindow"

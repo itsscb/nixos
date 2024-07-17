@@ -77,21 +77,22 @@ in {
       };
 
       xkb = {
-        layout = "us";
-        variant = "";
+        layout = "us,de";
+        variant = ",";
+        options = "grp:alt_shift_toggle";
       };
 
       excludePackages =
         (with pkgs; [
           nano
           xterm
-        ])
-        ++ (with pkgs.gnome; [
-          cheese
-          gnome-music
           epiphany
+          cheese
           geary
           totem
+        ])
+        ++ (with pkgs.gnome; [
+          gnome-music
           tali
           iagno
           hitori
@@ -174,7 +175,7 @@ in {
   };
 
   hardware = {
-    opengl.enable = true;
+    graphics.enable = true;
     nvidia.modesetting.enable = true;
 
     printers = {
