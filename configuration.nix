@@ -22,9 +22,9 @@ in {
   # Bootloader.
   boot = {
     loader = {
-      grub = {
-        splashImage = "./dotfiles/hypr/rust.png";
-      };
+      # grub = {
+      #   splashImage = "/etc/nixos/dotfiles/ferris.png";
+      # };
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
@@ -56,6 +56,31 @@ in {
     };
   };
 
+  # Enable Docker
+  virtualisation.docker.enable = true;
+
+  # Alternatively, specify docker group members directly
+  # users.extraGroups.docker.members = [ "username-with-access-to-socket" ];
+
+  # Configure storage driver (optional, e.g., for btrfs)
+  # virtualisation.docker.storageDriver = "btrfs";
+
+  # Enable rootless Docker (optional)
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
+  # Change Docker daemon's data root (optional)
+  # virtualisation.docker.daemon.settings = {
+  #   data-root = "/some-place/to-store-the-docker-data";
+  # };
+
+  # Use Arion for Docker Compose-like functionality (optional)
+  # modules = [ arion.nixosModules.arion ];
+  # virtualisation.arion = {
+    # Arion configuration goes here
+  # };
   services = {
     pipewire = {
       enable = true;
@@ -65,17 +90,30 @@ in {
       jack.enable = true;
     };
 
-    displayManager.sddm = {
-      enable = true;
-      theme = "${import ./sddm-theme-dawn.nix {inherit pkgs;}}";
-    };
+    # displayManager.sddm = {
+    #   enable = true;
+    #   theme = "${import ./sddm-theme-dawn.nix {inherit pkgs;}}";
+    # };
 
     xserver = {
       enable = true;
       desktopManager.gnome = {
         enable = true;
+        extraGSettingsOverrides = ''
+          [org.gnome.desktop.interface]
+          color-scheme='prefer-dark'
+        '';
       };
 
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+        # extraConfig = ''
+        #   [org.gnome.desktop.interface]
+        #   gtk-theme='Adwaita-dark'
+        # '';
+      };
+      
       xkb = {
         layout = "us,de";
         variant = ",";
@@ -110,7 +148,7 @@ in {
   };
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   users.groups.fsc = {
@@ -122,7 +160,7 @@ in {
     isNormalUser = true;
     uid = 1000;
     description = "itsscb";
-    extraGroups = ["networkmanager" "wheel" "fsc"];
+    extraGroups = ["networkmanager" "wheel" "fsc" "docker"];
     packages = with pkgs; [
     ];
   };
@@ -143,11 +181,11 @@ in {
     steam = {
       enable = true;
     };
-
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
+    
+    # hyprland = {
+    #   enable = true;
+    #   xwayland.enable = true;
+    # };
 
     chromium = {
       enable = true;
@@ -254,50 +292,50 @@ in {
     libsForQt5.qt5.qtgraphicaleffects
 
     # Hyprland / Window Manager
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
+    # xdg-desktop-portal-gtk
+    # xdg-desktop-portal-hyprland
 
     ## App Starter
-    rofi-wayland
+    # rofi-wayland
 
     ## Network Settings
-    networkmanagerapplet
+    # networkmanagerapplet
 
     # Audio Settings
-    pavucontrol
+    # pavucontrol
 
     ## Bluetooth Settings
-    blueman
+    # blueman
 
     ## Lockscreen
-    hyprlock
+    # hyprlock
 
     ## Top Bar
-    waybar
-    (
-      waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-      })
-    )
+    # waybar
+    # (
+    #   waybar.overrideAttrs (oldAttrs: {
+    #     mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+    #   })
+    # )
 
     ## ???
-    dunst
+    # dunst
 
     ## Notification Daemon (?)
-    libnotify
+    # libnotify
 
     ## File Manager
     # dolphin
-    cinnamon.nemo
+    nemo
     breeze-icons
 
     ## ???
-    swww
+    # swww
 
     # Clipboard Manager
     # xclip
     # xsel
-    wl-clipboard
+    # wl-clipboard
 
     # Image Manipulation
     inkscape
@@ -337,9 +375,15 @@ in {
 
     # Editor
     helix
+    vscode
+    zed-editor
+
+    docker-compose
 
     # Mail Client
     thunderbird
+
+    google-chrome
   ];
 
   sops.validateSopsFiles = false;

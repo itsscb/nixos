@@ -186,16 +186,19 @@
 
   dconf = {
     enable = true;
+    settings."org/gnome/desktop/wm/preferences".button-layout = ":minimize,maximize,close";
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    settings."org/gnome/desktop/background".picture-uri = "file:///etc/nixos/dotfiles/hypr/rust.png";
+    settings."org/gnome/desktop/background".picture-uri-dark = "file:///etc/nixos/dotfiles/hypr/rust.png";
     settings."org/gnome/desktop/screensaver" = {
       picture-uri = "file:///etc/nixos/dotfiles/hypr/rust.png";
       picture-uri-dark = "file:///etc/nixos/dotfiles/hypr/rust.png";
     };
     settings."org/gnome/desktop/peripherals/touchpad".tap-to-click = true;
-    settings."org/gnome/desktop/background".picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/keys-d.jpg";
-    settings."org/gnome/desktop/background".picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/keys-l.jpg";
-    settings."org/gnome/desktop/background".primary-color = "#aaaaaa";
-    settings."org/gnome/desktop/background".secondary-color = "#000000";
+    # settings."org/gnome/desktop/background".picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/keys-d.jpg";
+    # settings."org/gnome/desktop/background".picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/keys-l.jpg";
+    # settings."org/gnome/desktop/background".primary-color = "#aaaaaa";
+    # settings."org/gnome/desktop/background".secondary-color = "#000000";
     settings."org/gnome/desktop/interface".show-battery-percentage = true;
     settings."org/gnome/settings-daemon/plugins/media-keys".home = ["<Super>e"];
     settings."org/gnome/settings-daemon/plugins/media-keys".control-center = ["<Super>i"];
@@ -230,144 +233,144 @@
       latexmk;
     })
   ];
-  wayland.windowManager = {
-    hyprland = {
-      enable = true;
-      settings = {
-        exec-once = [
-          "swww-daemon"
-          "swww img /etc/nixos/dotfiles/hypr/rust.png"
-          "nm-applet --indicator"
-          "blueman-applet"
-          "waybar"
-          "dunst"
-        ];
+  # wayland.windowManager = {
+  #   hyprland = {
+  #     enable = true;
+  #     settings = {
+  #       exec-once = [
+  #         "swww-daemon"
+  #         "swww img /etc/nixos/dotfiles/hypr/rust.png"
+  #         "nm-applet --indicator"
+  #         "blueman-applet"
+  #         "waybar"
+  #         "dunst"
+  #       ];
 
-        "$terminal" = "alacritty";
-        "$fileManager" = "kitty yazi";
-        # "$fileManager" = "dolphin";
-        "$menu" = "rofi -show drun";
+  #       "$terminal" = "alacritty";
+  #       "$fileManager" = "kitty yazi";
+  #       # "$fileManager" = "dolphin";
+  #       "$menu" = "rofi -show drun";
 
-        "$mod" = "SUPER";
+  #       "$mod" = "SUPER";
 
-        monitor = ",preferred,auto,1";
+  #       monitor = ",preferred,auto,1";
 
-        general = {
-          layout = "master";
-          gaps_in = 5;
-          gaps_out = 20;
-          border_size = 2;
-          "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-          "col.inactive_border" = "rgba(595959aa)";
+  #       general = {
+  #         layout = "master";
+  #         gaps_in = 5;
+  #         gaps_out = 20;
+  #         border_size = 2;
+  #         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+  #         "col.inactive_border" = "rgba(595959aa)";
 
-          allow_tearing = false;
-        };
+  #         allow_tearing = false;
+  #       };
 
-        decoration = {
-          rounding = 10;
+  #       decoration = {
+  #         rounding = 10;
 
-          blur = {
-            enabled = true;
-            size = 3;
-            passes = 1;
-          };
+  #         blur = {
+  #           enabled = true;
+  #           size = 3;
+  #           passes = 1;
+  #         };
 
-          drop_shadow = "yes";
-          shadow_range = 4;
-          shadow_render_power = 3;
-          "col.shadow" = "rgba(1a1a1aee)";
-        };
+  #         drop_shadow = "yes";
+  #         shadow_range = 4;
+  #         shadow_render_power = 3;
+  #         "col.shadow" = "rgba(1a1a1aee)";
+  #       };
 
-        animations = {
-          enabled = "yes";
+  #       animations = {
+  #         enabled = "yes";
 
-          bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+  #         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
 
-          animation = [
-            "windows, 1, 7, myBezier"
-            "windowsOut, 1, 7, default, popin 80%"
-            "border, 1, 10, default"
-            "borderangle, 1, 8, default"
-            "fade, 1, 7, default"
-            "workspaces, 1, 6, default"
-          ];
-        };
+  #         animation = [
+  #           "windows, 1, 7, myBezier"
+  #           "windowsOut, 1, 7, default, popin 80%"
+  #           "border, 1, 10, default"
+  #           "borderangle, 1, 8, default"
+  #           "fade, 1, 7, default"
+  #           "workspaces, 1, 6, default"
+  #         ];
+  #       };
 
-        gestures = {
-          workspace_swipe = "off";
-        };
+  #       gestures = {
+  #         workspace_swipe = "off";
+  #       };
 
-        misc = {
-          force_default_wallpaper = 0;
-        };
+  #       misc = {
+  #         force_default_wallpaper = 0;
+  #       };
 
-        windowrulev2 = "suppressevent maximize, class:.*";
+  #       windowrulev2 = "suppressevent maximize, class:.*";
 
-        input = {
-          follow_mouse = 2;
+  #       input = {
+  #         follow_mouse = 2;
 
-          touchpad = {
-            natural_scroll = "yes";
-          };
-        };
+  #         touchpad = {
+  #           natural_scroll = "yes";
+  #         };
+  #       };
 
-        # master = {
-        #   new_is_master = false;
-        # };
+  #       # master = {
+  #       #   new_is_master = false;
+  #       # };
 
-        bindm = [
-          "$mod, mouse:272, movewindow"
-          "$mod, mouse:273, resizewindow"
-        ];
+  #       bindm = [
+  #         "$mod, mouse:272, movewindow"
+  #         "$mod, mouse:273, resizewindow"
+  #       ];
 
-        bind =
-          [
-            "$mod, T, exec, $terminal"
-            "$mod, L, exec, hyprlock"
-            "$mod, Q, exec, $terminal"
-            "$mod SHIFT, L, exit"
-            "$mod, C, killactive"
-            "$mod, E, exec, $fileManager"
-            "$mod, V, exec, togglefloating"
-            "$mod, R, exec, $menu"
-            "$mod, P, pseudo,"
-            "$mod, O, togglesplit,"
-            "$mod, U, fullscreen,"
-            "$mod, P, focuscurrentorlast,"
-            "$mod, P, movewindow,l"
-            # "$mod, H, movefocus, l"
-            # "$mod, K, movefocus, u"
-            "$mod, J, movefocus, d"
-            "$mod, S, togglespecialworkspace, magic"
-            "$mod SHIFT, S, movetoworkspace, special:magic"
-            "$mod, mouse_down, workspace, e+1"
-            "$mod, mouse_up, workspace, e-1"
-          ]
-          ++ (
-            # workspaces
-            # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-            builtins.concatLists (builtins.genList (
-                x: let
-                  ws = let
-                    c = (x + 1) / 10;
-                  in
-                    builtins.toString (x + 1 - (c * 10));
-                in [
-                  "$mod, ${ws}, workspace, ${toString (x + 1)}"
-                  "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-                ]
-              )
-              10)
-          );
-      };
-    };
-  };
+  #       bind =
+  #         [
+  #           "$mod, T, exec, $terminal"
+  #           "$mod, L, exec, hyprlock"
+  #           "$mod, Q, exec, $terminal"
+  #           "$mod SHIFT, L, exit"
+  #           "$mod, C, killactive"
+  #           "$mod, E, exec, $fileManager"
+  #           "$mod, V, exec, togglefloating"
+  #           "$mod, R, exec, $menu"
+  #           "$mod, P, pseudo,"
+  #           "$mod, O, togglesplit,"
+  #           "$mod, U, fullscreen,"
+  #           "$mod, P, focuscurrentorlast,"
+  #           "$mod, P, movewindow,l"
+  #           # "$mod, H, movefocus, l"
+  #           # "$mod, K, movefocus, u"
+  #           "$mod, J, movefocus, d"
+  #           "$mod, S, togglespecialworkspace, magic"
+  #           "$mod SHIFT, S, movetoworkspace, special:magic"
+  #           "$mod, mouse_down, workspace, e+1"
+  #           "$mod, mouse_up, workspace, e-1"
+  #         ]
+  #         ++ (
+  #           # workspaces
+  #           # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+  #           builtins.concatLists (builtins.genList (
+  #               x: let
+  #                 ws = let
+  #                   c = (x + 1) / 10;
+  #                 in
+  #                   builtins.toString (x + 1 - (c * 10));
+  #               in [
+  #                 "$mod, ${ws}, workspace, ${toString (x + 1)}"
+  #                 "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+  #               ]
+  #             )
+  #             10)
+  #         );
+  #     };
+  #   };
+  # };
 
   home.file = {
-    ".config/hypr/hyprlock.conf".source = ./dotfiles/hypr/hyprlock.conf;
-    ".config/waybar".source = ./dotfiles/waybar;
+    # ".config/hypr/hyprlock.conf".source = ./dotfiles/hypr/hyprlock.conf;
+    # ".config/waybar".source = ./dotfiles/waybar;
     ".config/helix/languages.toml".source = ./dotfiles/helix/languages.toml;
-    ".config/rofi/config.rasi".source = ./dotfiles/rofi/config.rasi;
+    # ".config/rofi/config.rasi".source = ./dotfiles/rofi/config.rasi;
   };
 
   home.sessionVariables = {
