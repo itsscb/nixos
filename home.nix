@@ -209,11 +209,11 @@
     settings."org/gnome/settings-daemon/plugins/media-keys".home = ["<Super>e"];
     settings."org/gnome/settings-daemon/plugins/media-keys".control-center = ["<Super>i"];
     settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".binding = "<Super>t";
-    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".command = "gnome-terminal";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".command = "alacritty";
     settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".name = "gt1";
 
     settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".binding = "<Control><Alt>t";
-    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".command = "gnome-terminal";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".command = "alacritty";
     settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".name = "gt2";
     settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
   };

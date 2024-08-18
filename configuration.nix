@@ -209,6 +209,7 @@ in {
 
     variables = {
       EDITOR = "hx";
+      XCURSOR_THEME = "Adwaita";
     };
   };
 
