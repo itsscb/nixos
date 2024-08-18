@@ -267,7 +267,7 @@ in {
         "audio/mpeg" = "vlc.desktop";
         "x-scheme-handler/http" = "chromium-browser.desktop";
         "x-scheme-handler/https" = "chromium-browser.desktop";
-        "inode/directory" = "yazi.desktop";
+        "inode/directory" = "nemo.desktop";
       };
     };
   };

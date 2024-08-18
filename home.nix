@@ -6,6 +6,12 @@
 }: {
   home.username = "itsscb";
   home.homeDirectory = "/home/itsscb";
+  home.file.".config/gtk-3.0/bookmarks".source = ./dotfiles/nemo-bookmarks;
+  home.file.".config/gtk-4.0/bookmarks".source = ./dotfiles/nemo-bookmarks;
+  # home.file.".config/nemo/dconf/user".text = ''
+  #   [org/nemo/preferences]
+  #   default-folder-viewer='list-view'
+  # '';
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
@@ -212,6 +218,7 @@
     settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
   };
   home.packages = with pkgs; [
+    nemo
     texlab
     (texlive.combine {
       inherit (texlive) scheme-full
