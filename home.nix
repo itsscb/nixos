@@ -5,6 +5,9 @@
   ...
 }: {
   home.username = "itsscb";
+  home.file.".face" = {
+    source = ./dotfiles/ferris.png;
+  };
   home.homeDirectory = "/home/itsscb";
   home.file.".config/gtk-3.0/bookmarks".source = ./dotfiles/nemo-bookmarks;
   home.file.".config/gtk-4.0/bookmarks".source = ./dotfiles/nemo-bookmarks;
