@@ -21,6 +21,7 @@ in {
 
   # Bootloader.
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       # grub = {
       #   splashImage = "/etc/nixos/dotfiles/ferris.png";
