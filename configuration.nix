@@ -19,6 +19,34 @@ in {
     (import "${sops}/modules/sops")
   ];
 
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+    extraOptions = ''
+      min-free = ${toString (1024 * 300 * 1024 * 1024)}
+      max-free = ${toString (1024 * 20 * 1024 * 1024)}
+    '';
+  };
+
+  systemd.services.nix-channel-update = {
+    description = "Update nix channels";
+    wants = ["network-online.target"];
+    after = ["network-online.target"];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.nix}/bin/nix-channel --update";
+      ExecStartPre = "${pkgs.systemd}/bin/systemctl is-active network-online.target";
+    };
+    startAt = "weekly";
+    unitConfig = {
+      ConditionACPower = true;
+      ConditionPathExists = "!/var/lib/NetworkManager/NetworkManager-intern.conf";
+    };
+  };
+
   # Bootloader.
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -36,6 +64,7 @@ in {
   networking = {
     hostName = "scbnb"; # Define your hostname.
     networkmanager.enable = true;
+    firewall.allowedTCPPorts = [ 8080 ];
   };
 
   # Set your time zone.
