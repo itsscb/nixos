@@ -16,7 +16,7 @@
   #   default-folder-viewer='list-view'
   # '';
 
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "24.11"; # Please read the comment before changing.
 
   gtk = {
     enable = true;

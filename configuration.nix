@@ -143,7 +143,6 @@ in {
         #   gtk-theme='Adwaita-dark'
         # '';
       };
-      
       xkb = {
         layout = "us,de";
         variant = ",";
@@ -205,13 +204,14 @@ in {
 
   fonts.packages = with pkgs; [
     nerdfonts
+    fira-code
   ];
 
   programs = {
     steam = {
       enable = true;
     };
-    
+
     # hyprland = {
     #   enable = true;
     #   xwayland.enable = true;
@@ -238,7 +238,7 @@ in {
     };
 
     variables = {
-      EDITOR = "hx";
+      EDITOR = "zeditor";
       XCURSOR_THEME = "Adwaita";
     };
   };
@@ -267,7 +267,7 @@ in {
     users = {
       "itsscb" = import ./home.nix;
       "root" = {
-        home.stateVersion = "23.11";
+        home.stateVersion = "24.11";
         home.file.".config/helix".source = ./dotfiles/helix;
         programs.bash = {
           enable = true;
