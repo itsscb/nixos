@@ -157,8 +157,6 @@ in {
           cheese
           geary
           totem
-        ])
-        ++ (with pkgs.gnome; [
           gnome-music
           tali
           iagno
@@ -203,8 +201,7 @@ in {
   };
 
   fonts.packages = with pkgs; [
-    nerdfonts
-    fira-code
+    nerd-fonts.fira-code
   ];
 
   programs = {
