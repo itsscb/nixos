@@ -224,7 +224,8 @@ in {
         SpellcheckEnabled = false;
       };
       defaultSearchProviderEnabled = true;
-      defaultSearchProviderSearchURL = "https://perplexity.ai/search?q={searchTerms}";
+      # defaultSearchProviderSearchURL = "https://perplexity.ai/search?q={searchTerms}";
+      defaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
     };
   };
 
@@ -232,6 +233,7 @@ in {
     sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
+      PATH = ["~/.cargo/bin" "$PATH"];
     };
 
     variables = {
@@ -369,6 +371,9 @@ in {
     inkscape
     gimp
 
+    # Office
+    libreoffice
+
     # Video
     ffmpeg
     vlc
@@ -431,7 +436,7 @@ in {
     "/mnt/home" = {
       device = "//192.168.128.2/Cloud_Privat";
       fsType = "cifs";
-      label = "HOME";
+      # label = "HOME";
       options = let
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user";
       in ["${automount_opts},credentials=${config.sops.secrets."nas".path},uid=1000,gid=1010"];
@@ -439,7 +444,7 @@ in {
     "/mnt/music" = {
       device = "//192.168.128.2/music";
       fsType = "cifs";
-      label = "HOME";
+      # label = "HOME";
       options = let
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user";
       in ["${automount_opts},credentials=${config.sops.secrets."nas".path},uid=1000,gid=1010"];
