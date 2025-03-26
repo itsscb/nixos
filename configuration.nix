@@ -19,6 +19,7 @@ in {
     (import "${sops}/modules/sops")
   ];
 
+  nixpkgs.config.allowUnfree = true;
   nix = {
     gc = {
       automatic = true;
@@ -176,7 +177,7 @@ in {
 
   # Enable sound with pipewire.
   # sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   users.groups.fsc = {
     gid = 1010;
@@ -225,7 +226,7 @@ in {
       };
       defaultSearchProviderEnabled = true;
       # defaultSearchProviderSearchURL = "https://perplexity.ai/search?q={searchTerms}";
-      defaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerms}";
+      defaultSearchProviderSearchURL = "https://kagi.com/search?token=QQBAfs5hkQc.0mQhLWGgo-bcmHkj6eg35TjjHhyYvrLYwNHh1o-V8tk&q={searchTerms}";
     };
   };
 
@@ -239,6 +240,7 @@ in {
     variables = {
       EDITOR = "zeditor";
       XCURSOR_THEME = "Adwaita";
+      RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
     };
   };
 
@@ -280,7 +282,6 @@ in {
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
 
   xdg = {
     portal.enable = true;
@@ -304,6 +305,15 @@ in {
 
   qt.enable = true;
   environment.systemPackages = with pkgs; [
+    rustup
+    # rustc
+    # cargo
+    # clippy
+    # rustfmt
+    # rust-analyzer
+
+    gcc
+    
     # nix specific
     ## Secrets Manager
     sops
@@ -357,7 +367,7 @@ in {
     ## File Manager
     # dolphin
     nemo
-    breeze-icons
+    kdePackages.breeze-icons
 
     ## ???
     # swww

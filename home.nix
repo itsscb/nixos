@@ -16,6 +16,8 @@
   #   default-folder-viewer='list-view'
   # '';
 
+  nixpkgs.config.allowUnfree = true;
+
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   gtk = {
@@ -221,6 +223,8 @@
     settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
   };
   home.packages = with pkgs; [
+  
+    jetbrains.rust-rover
     nemo
     texlab
     (texlive.combine {
