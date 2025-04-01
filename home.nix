@@ -87,7 +87,7 @@
 
     helix = {
       enable = true;
-      defaultEditor = true;
+      defaultEditor = false;
       settings = {
         theme = "onedark";
         editor = {

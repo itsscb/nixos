@@ -206,6 +206,11 @@ in {
   ];
 
   programs = {
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
+    
     steam = {
       enable = true;
     };
