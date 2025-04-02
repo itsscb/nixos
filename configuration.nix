@@ -378,9 +378,11 @@ in {
     # swww
 
     # Clipboard Manager
-    # xclip
+    xclip
     # xsel
     # wl-clipboard
+
+    unzip
 
     # Image Manipulation
     inkscape
@@ -411,6 +413,8 @@ in {
 
     ## 'find' replacement
     fd
+
+    lazygit
 
     ## Default Tools
     curl
