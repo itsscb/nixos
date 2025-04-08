@@ -3,7 +3,7 @@ Holds my helix configuration
 
 ## Setup
 ### Linux
-```cd ~/.config && git clone https://github.com/itsscb/helix.git && cd -```
+```cd ~/.config && git clone https://git.itsscb.de/itsscb/helix.git && cd -```
 
 ### Windows
-```cd $env:AppData; git clone https://github.com/itsscb/helix.git; cd -```
+```cd $env:AppData; git clone https://git.itsscb.de/itsscb/helix.git; cd -```
