@@ -174,7 +174,15 @@
       userName = "itsscb";
       userEmail = "dev@itsscb.de";
       extraConfig = {
-        credential.helper = "store";
+        # credential.helper = "store";
+	credential = {
+		"https://github.com" = {
+			helper = "store --file /home/itsscb/.config/git/credentials-git";
+		};
+		"https://git.itsscb.de" = {
+			helper = "store --file /home/itsscb/.config/git/credentials-gitea";
+		};
+	};
         http.postBuffer = 157286400;
       };
     };

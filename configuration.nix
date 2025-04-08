@@ -446,10 +446,17 @@ in {
   sops.secrets."nas" = {
     owner = config.users.users.itsscb.name;
   };
+
   sops.secrets."git" = {
     owner = config.users.users.itsscb.name;
-    path = "${config.users.users.itsscb.home}/.config/git/credentials";
+    path = "${config.users.users.itsscb.home}/.config/git/credentials-git";
   };
+
+  sops.secrets."gitea" = {
+    owner = config.users.users.itsscb.name;
+    path = "${config.users.users.itsscb.home}/.config/git/credentials-gitea";
+  };
+
 
   fileSystems = {
     "/mnt/home" = {
