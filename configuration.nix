@@ -219,20 +219,6 @@ in {
     #   enable = true;
     #   xwayland.enable = true;
     # };
-
-    chromium = {
-      enable = true;
-      homepageLocation = "https://perplexity.ai";
-      extraOpts = {
-        syncDisabled = true;
-        BrowserSignin = 0;
-        PasswordManagerEnabled = false;
-        SpellcheckEnabled = false;
-      };
-      defaultSearchProviderEnabled = true;
-      # defaultSearchProviderSearchURL = "https://perplexity.ai/search?q={searchTerms}";
-      defaultSearchProviderSearchURL = "https://kagi.com/search?token=QQBAfs5hkQc.0mQhLWGgo-bcmHkj6eg35TjjHhyYvrLYwNHh1o-V8tk&q={searchTerms}";
-    };
   };
 
   environment = {
@@ -456,6 +442,25 @@ in {
     owner = config.users.users.itsscb.name;
     path = "${config.users.users.itsscb.home}/.config/git/credentials-gitea";
   };
+
+  sops.secrets."kagi" = {
+	owner = config.users.users.itsscb.name;
+	path = "${config.users.users.itsscb.home}/.config/kagi/token";
+  };
+
+    programs.chromium = {
+      enable = true;
+      homepageLocation = "https://perplexity.ai";
+      extraOpts = {
+        syncDisabled = true;
+        BrowserSignin = 0;
+        PasswordManagerEnabled = false;
+        SpellcheckEnabled = false;
+      };
+      defaultSearchProviderEnabled = true;
+      # defaultSearchProviderSearchURL = "https://perplexity.ai/search?q={searchTerms}";
+      defaultSearchProviderSearchURL = "https://kagi.com/search?token=${builtins.readFile "${config.users.users.itsscb.home}/.config/kagi/token"}&q={searchTerms}";
+    };
 
 
   fileSystems = {
