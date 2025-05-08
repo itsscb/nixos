@@ -3,7 +3,16 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let 
+wezterm-config = builtins.fetchGit {
+  	url = "https://git.itsscb.de/itsscb/wezterm.git";
+	rev = "771c82eabd7201a5df5d01c2dd1a2336fe656138";
+  };
+neovim-config = builtins.fetchGit {
+  	url = "https://git.itsscb.de/itsscb/kickstart.nvim.git";
+	rev = "340d849be1e4a4aac1344a03f98ad525b3211b41";
+  }; 
+  in {
   home.username = "itsscb";
   home.file.".face" = {
     source = ./dotfiles/ferris.png;
@@ -11,6 +20,11 @@
   home.homeDirectory = "/home/itsscb";
   home.file.".config/gtk-3.0/bookmarks".source = ./dotfiles/nemo-bookmarks;
   home.file.".config/gtk-4.0/bookmarks".source = ./dotfiles/nemo-bookmarks;
+
+home.file.".config/nvim/init.lua".source = "${neovim-config}/init.lua";
+  home.file.".config/wezterm/wezterm.lua".source = "${wezterm-config}/wezterm.lua";
+  home.file."Pictures/ferris.png".source = ./dotfiles/ferris.png;
+
   # home.file.".config/nemo/dconf/user".text = ''
   #   [org/nemo/preferences]
   #   default-folder-viewer='list-view'
@@ -222,11 +236,11 @@
     settings."org/gnome/settings-daemon/plugins/media-keys".home = ["<Super>e"];
     settings."org/gnome/settings-daemon/plugins/media-keys".control-center = ["<Super>i"];
     settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".binding = "<Super>t";
-    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".command = "alacritty";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".command = "wezterm";
     settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0".name = "gt1";
 
     settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".binding = "<Control><Alt>t";
-    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".command = "alacritty";
+    settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".command = "wezterm";
     settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1".name = "gt2";
     settings."org/gnome/settings-daemon/plugins/media-keys".custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/" "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
   };
