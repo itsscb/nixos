@@ -203,9 +203,11 @@ in {
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
+    fira-code
   ];
 
   programs = {
+
     neovim = {
       enable = true;
       defaultEditor = true;
@@ -386,7 +388,7 @@ in {
 
     # Terminal
     alacritty
-    kitty
+    wezterm
 
     ## 'ls' replacement
     eza
