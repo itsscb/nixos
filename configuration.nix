@@ -452,7 +452,7 @@ in {
 
     programs.chromium = {
       enable = true;
-      homepageLocation = "https://perplexity.ai";
+      homepageLocation = "https://kagi.com/assistant";
       extraOpts = {
         syncDisabled = true;
         BrowserSignin = 0;

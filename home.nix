@@ -209,10 +209,10 @@ home.file.".config/nvim/init.lua".source = "${neovim-config}/init.lua";
       enable = true;
       commandLineArgs = [
         "--disable-default-apps"
-        "--homepage https://perplexity.ai"
         "--start-maximized"
-        "--enable-features=WebContentsForceDark"
-        "--force-dark-mode"
+        "--homepage https://kagi.com/assistant"
+        # "--enable-features=WebContentsForceDark"
+        # "--force-dark-mode"
       ];
     };
   };
