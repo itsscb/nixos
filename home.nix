@@ -6,7 +6,7 @@
 }: let 
 wezterm-config = builtins.fetchGit {
   	url = "https://git.itsscb.de/itsscb/wezterm.git";
-	rev = "771c82eabd7201a5df5d01c2dd1a2336fe656138";
+	rev = "05ee3ccf7157c156102edb7d7d1abf90faff08aa";
   };
 neovim-config = builtins.fetchGit {
   	url = "https://git.itsscb.de/itsscb/kickstart.nvim.git";
@@ -78,6 +78,9 @@ home.file.".config/nvim/init.lua".source = "${neovim-config}/init.lua";
   # };
 
   programs = {
+  	ncspot = { 
+	enable = true;
+	};
     # thunderbird = {
     #   enable = true;
     #   settings = {
