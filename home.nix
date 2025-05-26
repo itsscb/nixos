@@ -10,7 +10,7 @@ wezterm-config = builtins.fetchGit {
   };
 neovim-config = builtins.fetchGit {
   	url = "https://git.itsscb.de/itsscb/kickstart.nvim.git";
-	rev = "340d849be1e4a4aac1344a03f98ad525b3211b41";
+	rev = "4c13dc8d3990505df81f35b588371f59a4fde793";
   }; 
   in {
   home.username = "itsscb";
@@ -21,7 +21,7 @@ neovim-config = builtins.fetchGit {
   home.file.".config/gtk-3.0/bookmarks".source = ./dotfiles/nemo-bookmarks;
   home.file.".config/gtk-4.0/bookmarks".source = ./dotfiles/nemo-bookmarks;
 
-home.file.".config/nvim/init.lua".source = "${neovim-config}/init.lua";
+home.file.".config/nvim/".source = "${neovim-config}/";
   home.file.".config/wezterm/wezterm.lua".source = "${wezterm-config}/wezterm.lua";
   home.file."Pictures/ferris.png".source = ./dotfiles/ferris.png;
 
