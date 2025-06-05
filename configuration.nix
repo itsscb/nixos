@@ -496,6 +496,13 @@ in {
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user";
       in ["${automount_opts},credentials=${config.sops.secrets."nas".path},uid=1000,gid=1010"];
     };
+    "/mnt/docker" = {
+      device = "//192.168.128.2/docker";
+      fsType = "cifs";
+      options = let
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user";
+      in ["${automount_opts},credentials=${config.sops.secrets."nas".path},uid=1000,gid=1010"];
+    };
   };
 
   programs.nix-ld.enable = true;
