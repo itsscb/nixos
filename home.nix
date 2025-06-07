@@ -183,6 +183,8 @@ home.file.".config/nvim/".source = "${neovim-config}/";
         ls = "eza -l --git";
         grep = "rg";
         cat = "bat";
+	vpn-up = "sudo wg-quick up ~/.config/wireguard/scbnb.conf";
+	vpn-down = "sudo wg-quick down ~/.config/wireguard/scbnb.conf";
       };
     };
 
