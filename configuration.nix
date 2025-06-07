@@ -190,6 +190,7 @@ in {
     description = "itsscb";
     extraGroups = ["networkmanager" "wheel" "fsc" "docker"];
     packages = with pkgs; [
+    	wireguard-tools
     ];
   };
   users.users."k.sc" = {
