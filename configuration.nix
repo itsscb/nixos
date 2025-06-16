@@ -299,6 +299,8 @@ in {
 
   qt.enable = true;
   environment.systemPackages = with pkgs; [
+    jujutsu
+
     rustup
     # rustc
     # cargo
