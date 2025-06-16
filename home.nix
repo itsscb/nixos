@@ -251,7 +251,6 @@ home.file.".config/nvim/".source = "${neovim-config}/";
   };
   home.packages = with pkgs; [
   
-    jetbrains.rust-rover
     nemo
     texlab
     (texlive.combine {

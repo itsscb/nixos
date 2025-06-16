@@ -179,6 +179,12 @@ in {
   # sound.enable = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  security.sudo-rs = {
+	enable = true;
+	extraConfig = ''
+		Defaults env_keep += "EDITOR VISUAL"
+	'';
+  };
   users.groups.fsc = {
     gid = 1010;
   };
@@ -232,7 +238,9 @@ in {
     };
 
     variables = {
-      EDITOR = "zeditor";
+      EDITOR = "nvim";
+      SUDO_EDITOR = "nvim";
+      VISUAL = "nvim";
       XCURSOR_THEME = "Adwaita";
       RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
     };
@@ -419,7 +427,6 @@ in {
     # Editor
     helix
     vscode
-    zed-editor
 
     docker-compose
 
