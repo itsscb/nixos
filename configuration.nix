@@ -307,6 +307,11 @@ in {
 
   qt.enable = true;
   environment.systemPackages = with pkgs; [
+    ollama
+    (ollama.override {
+    	acceleration = "cuda";
+    })
+    
     jujutsu
 
     rustup
