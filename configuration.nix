@@ -311,6 +311,8 @@ in {
     (ollama.override {
     	acceleration = "cuda";
     })
+
+    typst
     
     jujutsu
 
@@ -428,10 +430,6 @@ in {
     jq # json tool
     poppler # ???
     fzf # ???
-
-    # Editor
-    helix
-    vscode
 
     docker-compose
 

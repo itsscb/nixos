@@ -6,11 +6,11 @@
 }: let 
 wezterm-config = builtins.fetchGit {
   	url = "https://git.itsscb.de/itsscb/wezterm.git";
-	rev = "05ee3ccf7157c156102edb7d7d1abf90faff08aa";
+	rev = "2ae702d08a920a7ef737ab6cee03f858e4f8f348";
   };
 neovim-config = builtins.fetchGit {
   	url = "https://git.itsscb.de/itsscb/kickstart.nvim.git";
-	rev = "4c13dc8d3990505df81f35b588371f59a4fde793";
+	rev = "762e7be7030fc83ab2d735a0d400a03a72641bbe";
   }; 
   in {
   home.username = "itsscb";
@@ -252,26 +252,26 @@ home.file.".config/nvim/".source = "${neovim-config}/";
   home.packages = with pkgs; [
   
     nemo
-    texlab
-    (texlive.combine {
-      inherit (texlive) scheme-full
-      latex-bin
-      latexindent
-      biber
-      biblatex
-      pgf
-      tikz-cd
-      xcolor
-      titlesec
-      fontawesome5
-      fontawesome
-      amsmath
-      amsfonts
-      hyperref
-      geometry
-      fontspec
-      latexmk;
-    })
+    # texlab
+    # (texlive.combine {
+    #   inherit (texlive) scheme-full
+    #   latex-bin
+    #   latexindent
+    #   biber
+    #   biblatex
+    #   pgf
+    #   tikz-cd
+    #   xcolor
+    #   titlesec
+    #   fontawesome5
+    #   fontawesome
+    #   amsmath
+    #   amsfonts
+    #   hyperref
+    #   geometry
+    #   fontspec
+    #   latexmk;
+    # })
   ];
   # wayland.windowManager = {
   #   hyprland = {
