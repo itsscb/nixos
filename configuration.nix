@@ -211,6 +211,13 @@ in {
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     fira-code
+    font-awesome  
+    dejavu_fonts          
+    noto-fonts           
+    source-sans-pro      
+    roboto               
+    cantarell-fonts      
+    eb-garamond 
   ];
 
   programs = {
